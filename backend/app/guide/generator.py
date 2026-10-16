@@ -1,6 +1,6 @@
 import logging
 from typing import Optional
-from app.llm.base import LLMProvider, LLMUnavailableError
+from app.llm.base import LLMProvider, LLMUnavailableError, LLMProviderError, LLMTimeoutError
 from app.llm.prompts import SYSTEM_PROMPT, build_user_prompt
 from app.llm.parser import parse_guide_response, GuideParseError
 from app.llm.deterministic import DeterministicProvider
