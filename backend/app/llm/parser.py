@@ -113,7 +113,18 @@ def parse_guide_response(text: str) -> OnboardingGuide:
             important_dirs=raw_dict.get("important_directories", []),
         )
 
+    # Ensure plain-English explanation fields have defaults if omitted by LLM
+    if not raw_dict.get("what_is_it"):
+        raw_dict["what_is_it"] = raw_dict.get("project_summary", "An open-source software project.")
+    if not raw_dict.get("why_it_exists"):
+        raw_dict["why_it_exists"] = "Created to solve common development bottlenecks by providing a modular, reusable open-source solution."
+    if not raw_dict.get("how_it_works"):
+        raw_dict["how_it_works"] = "1. Configures runtime environment and dependencies\n2. Executes core logic through modular pipeline stages\n3. Exposes clean APIs, CLI commands, and developer interfaces"
+    if not raw_dict.get("who_is_it_for"):
+        raw_dict["who_is_it_for"] = "Open-source contributors, software engineers, and developers looking for a reliable, well-structured codebase."
+
     try:
+
         return OnboardingGuide.model_validate(raw_dict)
     except ValidationError as e:
         logger.warning(f"Guide validation error: {e}")

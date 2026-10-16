@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
-import { ArrowLeft, RotateCcw } from 'lucide-react';
-=======
 import { 
   ArrowLeft, 
   RotateCcw, 
@@ -9,9 +6,8 @@ import {
   Zap, 
   BookOpen, 
   Layers, 
-  Sparkles
+  Sparkles 
 } from 'lucide-react';
->>>>>>> 24723acbc0e4ff7a21789f33c757c4ab3fc12104
 import type { AnalysisResponse } from '../types/guide';
 import { RepositoryHeader } from '../components/RepositoryHeader';
 import { NewcomerQuickstart } from '../components/NewcomerQuickstart';
@@ -37,11 +33,8 @@ type DepthMode = 'all' | 'tldr' | 'standard' | 'deep';
 
 export const GuideView: React.FC<GuideViewProps> = ({ data, onReset }) => {
   const { repository, guide, metadata } = data;
-<<<<<<< HEAD
-  const [mode, setMode] = useState<'beginner' | 'deepdive'>('beginner');
-=======
   const [depthMode, setDepthMode] = useState<DepthMode>('all');
->>>>>>> 24723acbc0e4ff7a21789f33c757c4ab3fc12104
+  const [quickstartMode, setQuickstartMode] = useState<'beginner' | 'deepdive'>('beginner');
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
@@ -63,16 +56,22 @@ export const GuideView: React.FC<GuideViewProps> = ({ data, onReset }) => {
       {/* 1. Repository Header */}
       <RepositoryHeader repository={repository} metadata={metadata} />
 
-<<<<<<< HEAD
       {/* 2. Newcomer Fast Track & Accuracy Gauge */}
       <NewcomerQuickstart
         guide={guide}
         repository={repository}
-        activeMode={mode}
-        onToggleMode={setMode}
+        activeMode={quickstartMode}
+        onToggleMode={(mode) => {
+          setQuickstartMode(mode);
+          if (mode === 'deepdive') {
+            setDepthMode('deep');
+          } else {
+            setDepthMode('standard');
+          }
+        }}
       />
-=======
-      {/* Adjustable Depth Mode Bar */}
+
+      {/* 3. Adjustable Depth Mode Bar */}
       <div className="mb-8 p-3 sm:p-4 rounded-2xl glass-panel border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-slate-900/40">
         <div className="flex items-center gap-2.5">
           <Sliders className="w-4 h-4 text-cyan-400 shrink-0" />
@@ -98,7 +97,6 @@ export const GuideView: React.FC<GuideViewProps> = ({ data, onReset }) => {
             <Sparkles className="w-3.5 h-3.5" />
             <span>Complete Guide</span>
           </button>
-
           <button
             onClick={() => setDepthMode('tldr')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
@@ -108,9 +106,8 @@ export const GuideView: React.FC<GuideViewProps> = ({ data, onReset }) => {
             }`}
           >
             <Zap className="w-3.5 h-3.5" />
-            <span>TL;DR Quick Start</span>
+            <span>TL;DR (1-Min)</span>
           </button>
-
           <button
             onClick={() => setDepthMode('standard')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
@@ -120,44 +117,41 @@ export const GuideView: React.FC<GuideViewProps> = ({ data, onReset }) => {
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
-            <span>Standard Contributor</span>
+            <span>Contributor Fast Track</span>
           </button>
-
           <button
             onClick={() => setDepthMode('deep')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
               depthMode === 'deep'
-                ? 'bg-purple-500 text-white shadow-md shadow-purple-500/20'
+                ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
             <Layers className="w-3.5 h-3.5" />
-            <span>Deep Blueprint & Plans</span>
+            <span>Deep Architectural</span>
           </button>
         </div>
       </div>
 
-      {/* 2. What Makes Our Project Different (Highlighted in All and Deep modes) */}
-      {(depthMode === 'all' || depthMode === 'deep') && (
+      {/* 4. What Makes Our Project Different (Highlighted in All and Deep modes) */}
+      {(depthMode === 'all' || depthMode === 'deep') && guide.differentiation_matrix && guide.differentiation_matrix.length > 0 && (
         <WhatMakesDiffSection diffPoints={guide.differentiation_matrix} />
       )}
->>>>>>> 24723acbc0e4ff7a21789f33c757c4ab3fc12104
 
-      {/* 3. Project Summary & Where to Start */}
+      {/* 5. Project Summary & Where to Start */}
       <ProjectSummary
         summary={guide.project_summary}
         whereToStart={guide.where_to_start}
+        whatIsIt={guide.what_is_it}
+        whyItExists={guide.why_it_exists}
+        howItWorks={guide.how_it_works}
+        whoIsItFor={guide.who_is_it_for}
         deepExplanation={guide.deep_architecture?.explanation}
         pattern={guide.deep_architecture?.pattern}
       />
 
-<<<<<<< HEAD
-      {/* 4. Prerequisites */}
-      <Prerequisites prerequisites={guide.prerequisites} />
 
-      {/* 5. First Contribution Spotlight */}
-=======
-      {/* 4. Deep Architectural Explorer (Lifecycle pipeline) */}
+      {/* 6. Deep Architectural Explorer (Lifecycle pipeline) */}
       {(depthMode === 'all' || depthMode === 'deep') && guide.deep_architecture && (
         <DeepArchitectureExplorer
           architecture={guide.deep_architecture}
@@ -166,8 +160,8 @@ export const GuideView: React.FC<GuideViewProps> = ({ data, onReset }) => {
         />
       )}
 
-      {/* 5. Targeted Execution Plans (Multi-track action roadmaps) */}
-      {(depthMode === 'all' || depthMode === 'deep' || depthMode === 'standard') && (
+      {/* 7. Targeted Execution Plans (Multi-track action roadmaps) */}
+      {(depthMode === 'all' || depthMode === 'deep' || depthMode === 'standard') && guide.execution_plans && guide.execution_plans.length > 0 && (
         <ExecutionPlans
           plans={guide.execution_plans}
           repoUrl={repository.html_url}
@@ -175,30 +169,19 @@ export const GuideView: React.FC<GuideViewProps> = ({ data, onReset }) => {
         />
       )}
 
-      {/* 6. Prerequisites */}
+      {/* 8. Prerequisites */}
       {(depthMode === 'all' || depthMode === 'standard' || depthMode === 'tldr') && (
         <Prerequisites prerequisites={guide.prerequisites} />
       )}
 
-      {/* 7. First Contribution Spotlight */}
->>>>>>> 24723acbc0e4ff7a21789f33c757c4ab3fc12104
+      {/* 9. First Contribution Spotlight */}
       <FirstContribution
         firstContribution={guide.first_contribution}
         repoUrl={repository.html_url}
         defaultBranch={repository.default_branch}
       />
 
-<<<<<<< HEAD
-      {/* 6. Recommended Beginner Issues */}
-      <IssueRecommendations
-        issues={guide.recommended_issues}
-        repoUrl={repository.html_url}
-        defaultBranch={repository.default_branch}
-      />
-
-      {/* 7. Setup Guide */}
-=======
-      {/* 8. Recommended Beginner Issues */}
+      {/* 10. Recommended Beginner Issues */}
       {(depthMode === 'all' || depthMode === 'standard' || depthMode === 'deep') && (
         <IssueRecommendations
           issues={guide.recommended_issues}
@@ -207,50 +190,21 @@ export const GuideView: React.FC<GuideViewProps> = ({ data, onReset }) => {
         />
       )}
 
-      {/* 9. Setup Guide */}
->>>>>>> 24723acbc0e4ff7a21789f33c757c4ab3fc12104
+      {/* 11. Setup Guide */}
       <SetupGuide
         steps={guide.setup_steps}
         repoUrl={repository.html_url}
         defaultBranch={repository.default_branch}
       />
 
-<<<<<<< HEAD
-      {/* 8. Run Locally */}
-=======
-      {/* 10. Run Locally */}
->>>>>>> 24723acbc0e4ff7a21789f33c757c4ab3fc12104
+      {/* 12. Run Locally */}
       <RunInstructions
         instructions={guide.run_instructions}
         repoUrl={repository.html_url}
         defaultBranch={repository.default_branch}
       />
 
-<<<<<<< HEAD
-      {/* 9. Deep Dive Only Sections: Architecture, Workflow & Warnings */}
-      {mode === 'deepdive' && (
-        <div className="space-y-6 pt-4 border-t border-slate-800/60 animate-in fade-in duration-300">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">
-              Deep Dive Architecture
-            </span>
-            <span className="text-xs text-slate-400">Detailed file trees, contribution branching, and cautions</span>
-          </div>
-
-          <DirectoryExplorer
-            directories={guide.important_directories}
-            repoUrl={repository.html_url}
-            defaultBranch={repository.default_branch}
-          />
-
-          <ContributionWorkflow workflow={guide.contribution_workflow} />
-
-          <WarningPanel warnings={guide.warnings} />
-        </div>
-      )}
-
-=======
-      {/* 11. Important Directories & Architecture */}
+      {/* 13. Important Directories & Architecture */}
       {(depthMode === 'all' || depthMode === 'standard' || depthMode === 'deep') && (
         <DirectoryExplorer
           directories={guide.important_directories}
@@ -259,14 +213,13 @@ export const GuideView: React.FC<GuideViewProps> = ({ data, onReset }) => {
         />
       )}
 
-      {/* 12. Contribution Workflow */}
+      {/* 14. Contribution Workflow */}
       {(depthMode === 'all' || depthMode === 'standard') && (
         <ContributionWorkflow workflow={guide.contribution_workflow} />
       )}
 
-      {/* 13. Warnings & Uncertainties */}
+      {/* 15. Warnings & Uncertainties */}
       <WarningPanel warnings={guide.warnings} />
->>>>>>> 24723acbc0e4ff7a21789f33c757c4ab3fc12104
 
       {/* Bottom CTA */}
       <div className="text-center py-12 border-t border-slate-800/80 mt-12">

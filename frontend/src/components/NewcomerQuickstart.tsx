@@ -79,9 +79,10 @@ export const NewcomerQuickstart: React.FC<NewcomerQuickstartProps> = ({
           <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
             Start Contributing to <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-300">{repository.name}</span> in 5 Minutes
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
-            Zero guesswork. Follow this 3-step path verified against actual repository manifests and issues.
+          <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl font-medium leading-relaxed">
+            {guide.what_is_it || repository.description || "Open-source project onboarding guide verified against repository manifests and issues."}
           </p>
+
         </div>
 
         {/* Right Action: Confidence Badge + Mode Switcher */}

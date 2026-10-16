@@ -24,16 +24,19 @@ Example: "The project uses Node.js, but the repository does not explicitly speci
 Example: "No specific starting file could be confidently identified from the available repository evidence."
 
 Analyze:
-1. What the project does
-2. Required prerequisites
-3. Local setup steps (with exact commands only when found in manifests/README)
-4. How to run it locally
-5. Important directories/files and why a newcomer should care
-6. Where a newcomer should start
-7. Beginner-friendly issues (choose ONLY from the supplied ranked issues)
-8. Why those issues are suitable
-9. Suggested realistic first contribution (docs, small test, small bugfix - avoid big refactors)
-10. Contribution workflow (prioritize CONTRIBUTING.md, otherwise label generic GitHub PR workflow as generic)
+1. What the project does, in extremely simple plain English (explain like I'm 15 - no confusing jargon)
+2. Why it exists and what specific real-world problem it solves
+3. How it works under the hood in 2-3 simple steps
+4. Who uses this and who it is for
+5. Required prerequisites
+6. Local setup steps (with exact commands only when found in manifests/README)
+7. How to run it locally
+8. Important directories/files and why a newcomer should care
+9. Where a newcomer should start
+10. Beginner-friendly issues (choose ONLY from the supplied ranked issues)
+11. Why those issues are suitable
+12. Suggested realistic first contribution (docs, small test, small bugfix - avoid big refactors)
+13. Contribution workflow (prioritize CONTRIBUTING.md, otherwise label generic GitHub PR workflow as generic)
 
 Every recommendation MUST be grounded in repository evidence.
 Every evidence object must contain:
@@ -44,7 +47,12 @@ Every evidence object must contain:
 You MUST return a single valid JSON object matching the following structure:
 {
   "project_summary": "Clear, beginner-friendly explanation of what the project does and its core value.",
+  "what_is_it": "In very simple words, what is this software? (e.g. 'Think of this as an automated tool that...')",
+  "why_it_exists": "What pain point or real-world problem does this solve? Why was it created?",
+  "how_it_works": "How does it work step-by-step in simple language? (e.g. '1. Reads your inputs, 2. Processes them via X, 3. Displays Y')",
+  "who_is_it_for": "Who is the primary audience? (e.g. 'Frontend developers building dashboard UIs')",
   "prerequisites": ["List of verified prerequisites, e.g. Node.js >= 18, Docker, Python 3.11"],
+
   "setup_steps": [
     {
       "step": 1,

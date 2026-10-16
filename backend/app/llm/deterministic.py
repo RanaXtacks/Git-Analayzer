@@ -34,15 +34,18 @@ class DeterministicProvider(LLMProvider):
         readme = data.get("readme_excerpt", "")
         issues = data.get("available_open_issues", [])
 
-        # 1. Project Summary
-        summary = meta.get("description")
-        if not summary or summary.strip() == "":
-            summary = (
-                f"{meta.get('name', 'This project')} is an open-source {meta.get('language') or 'software'} "
-                f"repository hosted on GitHub by {meta.get('owner', 'the maintainers')}."
-            )
-        else:
-            summary = f"{meta.get('name', 'This project')}: {summary}"
+        # 1. Project Explanation in Simple Words
+        plain_breakdown = _extract_plain_english_breakdown(
+            meta=meta,
+            deps=deps,
+            readme=readme,
+            struct=struct,
+        )
+
+        summary = plain_breakdown["what_is_it"]
+        if meta.get("description") and meta["description"] not in summary:
+            summary = f"{summary} ({meta['description']})"
+
 
         # 2. Prerequisites
         prereqs = []
@@ -272,7 +275,12 @@ class DeterministicProvider(LLMProvider):
 
         guide_dict = {
             "project_summary": summary,
+            "what_is_it": plain_breakdown.get("what_is_it"),
+            "why_it_exists": plain_breakdown.get("why_it_exists"),
+            "how_it_works": plain_breakdown.get("how_it_works"),
+            "who_is_it_for": plain_breakdown.get("who_is_it_for"),
             "prerequisites": prereqs,
+
             "setup_steps": setup_steps,
             "run_instructions": run_instructions,
             "important_directories": important_dirs,
@@ -655,4 +663,70 @@ def _build_deterministic_diff_matrix() -> List[Dict[str, str]]:
             "technical_reason": "Pluggable LLM provider architecture with automatic deterministic fallback guarantees offline functionality.",
         },
     ]
+
+
+def _extract_plain_english_breakdown(
+    meta: Dict[str, Any],
+    deps: Dict[str, Any],
+    readme: str,
+    struct: Dict[str, Any],
+) -> Dict[str, str]:
+    """
+    Extracts crystal-clear, non-jargon explanations from README and metadata.
+    Answers: What is it, why does it exist, how does it work, and who is it for.
+    """
+    repo_name = meta.get("name", "This project")
+    desc = (meta.get("description") or "").strip()
+    lang = meta.get("language") or "software"
+    runtime = deps.get("runtime") or lang
+
+    # Extract clean text from README
+    clean_lines = []
+    if readme and readme != "No README file found.":
+        for line in readme.splitlines():
+            line_s = line.strip()
+            # Skip headings, badges, markdown tables, code fences
+            if not line_s:
+                continue
+            if line_s.startswith(("#", "!", "[![", "<", "|", "```", "---")):
+                continue
+            # Remove inline links like [text](url) -> text
+            cleaned = re.sub(r"\[(.*?)\]\(.*?\)", r"\1", line_s)
+            cleaned = re.sub(r"<.*?>", "", cleaned).strip()
+            if len(cleaned) > 25 and not cleaned.lower().startswith("table of contents"):
+                clean_lines.append(cleaned)
+
+    # 1. What is it in simple words
+    if clean_lines:
+        first_para = clean_lines[0]
+        if first_para.lower().startswith(repo_name.lower()):
+            what_is_it = first_para
+        else:
+            what_is_it = f"{repo_name} is an open-source project that {first_para[0].lower() + first_para[1:]}"
+    elif desc:
+        what_is_it = f"{repo_name} is an open-source {lang} tool designed to {desc[0].lower() + desc[1:]}"
+    else:
+        what_is_it = f"{repo_name} is an open-source {lang} project that provides modular developer tools and workflows."
+
+    # 2. Why it exists (The Problem & Purpose)
+    if desc:
+        why_it_exists = f"It was created to solve the problem of {desc.rstrip('.')}. Without it, developers often have to write repetitive custom code or manage complex manual workflows."
+    else:
+        why_it_exists = f"It exists to provide a clean, pre-built {lang} solution so developers don't have to build and maintain these features from scratch."
+
+    # 3. How it works
+    entries = struct.get("likely_entry_points", [])
+    entry_point = entries[0] if entries else "main entrypoint"
+    how_it_works = f"1. It reads your input configuration and environment settings.\n2. Passes execution through its core modules starting at {entry_point}.\n3. Produces verified outputs and responses for your workflow."
+
+    # 4. Who it is for
+    who_is_it_for = f"Engineers, developers, and open-source contributors working with {lang} and {runtime}."
+
+    return {
+        "what_is_it": what_is_it,
+        "why_it_exists": why_it_exists,
+        "how_it_works": how_it_works,
+        "who_is_it_for": who_is_it_for,
+    }
+
 

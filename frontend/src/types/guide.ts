@@ -90,7 +90,12 @@ export interface CopilotDiffPoint {
 
 export interface OnboardingGuide {
   project_summary: string;
+  what_is_it?: string;
+  why_it_exists?: string;
+  how_it_works?: string;
+  who_is_it_for?: string;
   prerequisites: string[];
+
   setup_steps: SetupStep[];
   run_instructions: SetupStep[];
   important_directories: DirectoryInfo[];

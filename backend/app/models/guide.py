@@ -94,7 +94,12 @@ class CopilotDiffPoint(BaseModel):
 
 class OnboardingGuide(BaseModel):
     project_summary: str
+    what_is_it: Optional[str] = None
+    why_it_exists: Optional[str] = None
+    how_it_works: Optional[str] = None
+    who_is_it_for: Optional[str] = None
     prerequisites: List[str] = Field(default_factory=list)
+
     setup_steps: List[SetupStep] = Field(default_factory=list)
     run_instructions: List[SetupStep] = Field(default_factory=list)
     important_directories: List[DirectoryInfo] = Field(default_factory=list)
