@@ -17,8 +17,9 @@ services:
       - REDIS_ENABLED=true
       - REDIS_URL=redis://redis:6379/0
       - LLM_PROVIDER=ollama
-      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
-      - OLLAMA_MODEL=${OLLAMA_MODEL:-qwen3:8b}
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://ollama:11434}
+      - OLLAMA_MODEL=${OLLAMA_MODEL:-qwen2.5:7b}
+      - AUTO_FALLBACK_TO_DETERMINISTIC=true
       - GITHUB_TOKEN=${GITHUB_TOKEN:-}
       - CORS_ORIGINS=["http://localhost:5173", "http://127.0.0.1:5173"]
     extra_hosts:
@@ -28,6 +29,8 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+      ollama:
+        condition: service_started
 
   frontend:
     build:
@@ -39,6 +42,15 @@ services:
       - "5173:80"
     depends_on:
       - backend
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: git_analyzer_ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
 
   postgres:
     image: postgres:16-alpine
@@ -75,3 +87,4 @@ services:
 volumes:
   postgres_dev_data:
   redis_dev_data:
+  ollama_data:
