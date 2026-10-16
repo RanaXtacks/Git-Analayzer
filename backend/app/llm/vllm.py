@@ -59,13 +59,17 @@ class VLLMProvider(LLMProvider):
             )
 
     async def health_check(self) -> bool:
+        headers = {}
+        if self.api_key:
+            headers["Authorization"] = f"Bearer {self.api_key}"
         try:
             async with httpx.AsyncClient(timeout=5.0) as client:
-                resp = await client.get(f"{self.base_url}/health")
+                resp = await client.get(f"{self.base_url}/health", headers=headers)
                 if resp.status_code == 200:
                     return True
                 # Fallback check
-                resp_models = await client.get(f"{self.base_url}/v1/models")
+                resp_models = await client.get(f"{self.base_url}/v1/models", headers=headers)
                 return resp_models.status_code == 200
         except Exception:
             return False
+
