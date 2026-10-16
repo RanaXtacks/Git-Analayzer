@@ -109,9 +109,9 @@ def build_user_prompt(context: RepositoryContext) -> str:
     struct = context.structure
     cfg = context.configuration
 
-    # Format top ranked issues
+    # Format top ranked issues (top 5 are sufficient for onboarding recommendations)
     top_issues = []
-    for ri in context.ranked_issues[:10]:
+    for ri in context.ranked_issues[:5]:
         top_issues.append({
             "number": ri.issue.number,
             "title": ri.issue.title,
@@ -121,7 +121,7 @@ def build_user_prompt(context: RepositoryContext) -> str:
             "difficulty": ri.difficulty,
             "comments": ri.issue.comments,
             "ranking_reasons": ri.reasons,
-            "body_excerpt": (ri.issue.body or "")[:300],
+            "body_excerpt": (ri.issue.body or "")[:150],
         })
 
     prompt_data = {
@@ -155,7 +155,7 @@ def build_user_prompt(context: RepositoryContext) -> str:
             "total_files": struct.total_files,
             "important_directories": struct.important_directories,
             "likely_entry_points": struct.likely_entry_points,
-            "compact_tree_sample": struct.compact_tree[:3000],
+            "compact_tree_sample": struct.compact_tree[:1500],
         },
         "configuration_analysis": {
             "docker_support": cfg.docker_support,
@@ -164,8 +164,8 @@ def build_user_prompt(context: RepositoryContext) -> str:
             "ci_workflows": cfg.ci_workflows,
             "ci_commands": cfg.ci_commands,
         },
-        "readme_excerpt": (context.readme or "No README file found.")[:8000],
-        "contributing_excerpt": (context.contributing or "No CONTRIBUTING.md found.")[:4000],
+        "readme_excerpt": (context.readme or "No README file found.")[:3500],
+        "contributing_excerpt": (context.contributing or "No CONTRIBUTING.md found.")[:1500],
         "available_open_issues": top_issues,
     }
 
