@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef } from 'react';
-import { AnalysisResponse, ProgressItem, ProgressStage } from '../types/guide';
-import { analyzeRepositoryStream, ProgressCallbackData } from '../services/api';
+import type { AnalysisResponse, ProgressItem, ProgressStage } from '../types/guide';
+import type { ProgressCallbackData } from '../services/api';
+import { analyzeRepositoryStream } from '../services/api';
 
 const STAGES: { stage: ProgressStage; label: string }[] = [
   { stage: 'metadata', label: 'Repository metadata' },

@@ -1,4 +1,4 @@
-import { AnalysisResponse } from '../types/guide';
+import type { AnalysisResponse } from '../types/guide';
 
 const API_BASE = '/api';
 

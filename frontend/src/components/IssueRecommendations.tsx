@@ -1,6 +1,6 @@
 import React from 'react';
-import { Sparkles, ExternalLink, Award, CheckCircle } from 'lucide-react';
-import { RecommendedIssue } from '../types/guide';
+import { Sparkles, ExternalLink, Award } from 'lucide-react';
+import type { RecommendedIssue } from '../types/guide';
 import { EvidenceBadge } from './EvidenceBadge';
 
 interface IssueRecommendationsProps {

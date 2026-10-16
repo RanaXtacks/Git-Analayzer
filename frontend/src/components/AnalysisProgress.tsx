@@ -1,6 +1,6 @@
 import React from 'react';
 import { CheckCircle2, Loader2, Circle, XCircle } from 'lucide-react';
-import { ProgressItem } from '../types/guide';
+import type { ProgressItem } from '../types/guide';
 
 interface AnalysisProgressProps {
   stages: ProgressItem[];

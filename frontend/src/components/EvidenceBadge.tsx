@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FileText, ExternalLink } from 'lucide-react';
-import { Evidence } from '../types/guide';
+import type { Evidence } from '../types/guide';
 
 interface EvidenceBadgeProps {
   evidence?: Evidence[];

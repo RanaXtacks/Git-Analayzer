@@ -1,6 +1,6 @@
 import React from 'react';
-import { Target, FileCode, CheckCircle, Lightbulb } from 'lucide-react';
-import { FirstContribution as FirstContribType } from '../types/guide';
+import { Target, FileCode, Lightbulb } from 'lucide-react';
+import type { FirstContribution as FirstContribType } from '../types/guide';
 import { EvidenceBadge } from './EvidenceBadge';
 
 interface FirstContributionProps {

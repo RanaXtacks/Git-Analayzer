@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Play, Terminal, Copy, Check } from 'lucide-react';
-import { SetupStep } from '../types/guide';
+import type { SetupStep } from '../types/guide';
 import { EvidenceBadge } from './EvidenceBadge';
 
 interface RunInstructionsProps {

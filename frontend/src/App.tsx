@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Compass, Github, Heart } from 'lucide-react';
+import { Compass, Heart, Code2 } from 'lucide-react';
 import { ThemeToggle } from './components/ThemeToggle';
 import { LandingPage } from './pages/LandingPage';
 import { GuideView } from './pages/GuideView';
@@ -65,7 +65,7 @@ export const App: React.FC = () => {
               className="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 hover:text-white transition-colors border border-slate-700/50 cursor-pointer"
               title="GitHub"
             >
-              <Github className="w-4 h-4" />
+              <Code2 className="w-4 h-4" />
             </a>
           </div>
         </div>

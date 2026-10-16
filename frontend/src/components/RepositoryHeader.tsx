@@ -1,6 +1,6 @@
 import React from 'react';
-import { Star, GitFork, AlertCircle, BookOpen, ExternalLink, GitBranch, ShieldCheck } from 'lucide-react';
-import { RepositoryMetadata, AnalysisMetadata } from '../types/guide';
+import { Star, GitFork, AlertCircle, ExternalLink, GitBranch, ShieldCheck } from 'lucide-react';
+import type { RepositoryMetadata, AnalysisMetadata } from '../types/guide';
 
 interface RepositoryHeaderProps {
   repository: RepositoryMetadata;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FolderGit2, Info } from 'lucide-react';
-import { DirectoryInfo } from '../types/guide';
+import type { DirectoryInfo } from '../types/guide';
 import { EvidenceBadge } from './EvidenceBadge';
 
 interface DirectoryExplorerProps {
