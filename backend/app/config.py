@@ -33,11 +33,13 @@ class Settings(BaseSettings):
     GITHUB_API_BASE: str = "https://api.github.com"
 
     # LLM Settings
-    LLM_PROVIDER: str = "ollama"  # "ollama" or "vllm"
+    LLM_PROVIDER: str = "ollama"  # "ollama", "vllm", or "deterministic"
     OLLAMA_BASE_URL: str = "http://localhost:11434"
     OLLAMA_MODEL: str = "qwen3:8b"
     VLLM_BASE_URL: str = "http://localhost:8000"
     VLLM_MODEL: str = "qwen3:8b"
+    VLLM_API_KEY: Optional[str] = None
+    AUTO_FALLBACK_TO_DETERMINISTIC: bool = True
     LLM_TIMEOUT: int = 120
     LLM_MAX_RETRIES: int = 1
 
@@ -65,7 +67,7 @@ class Settings(BaseSettings):
     MAX_CONCURRENT_ANALYSES: int = 5
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=(".env", "../.env"),
         env_file_encoding="utf-8",
         extra="ignore"
     )

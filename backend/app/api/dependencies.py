@@ -6,6 +6,7 @@ from app.analyzer.repository import RepositoryAnalyzer
 from app.llm.base import LLMProvider
 from app.llm.ollama import OllamaProvider
 from app.llm.vllm import VLLMProvider
+from app.llm.deterministic import DeterministicProvider
 from app.cache.service import CacheService, InMemoryCacheService, RedisCacheService
 
 # Singleton instances
@@ -39,12 +40,16 @@ def get_analyzer() -> RepositoryAnalyzer:
 
 def get_llm_provider() -> LLMProvider:
     settings = get_settings()
-    if settings.LLM_PROVIDER.lower() == "vllm":
+    provider_name = settings.LLM_PROVIDER.lower().strip()
+    if provider_name == "vllm":
         return VLLMProvider(
             base_url=settings.VLLM_BASE_URL,
             model=settings.VLLM_MODEL,
+            api_key=settings.VLLM_API_KEY,
             timeout=float(settings.LLM_TIMEOUT),
         )
+    elif provider_name == "deterministic":
+        return DeterministicProvider()
     else:
         return OllamaProvider(
             base_url=settings.OLLAMA_BASE_URL,

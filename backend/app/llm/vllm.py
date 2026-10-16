@@ -6,16 +6,18 @@ logger = logging.getLogger("git_analyzer.llm.vllm")
 
 
 class VLLMProvider(LLMProvider):
-    """LLM Provider implementation for high-throughput vLLM OpenAI-compatible server."""
+    """LLM Provider implementation for high-throughput vLLM and OpenAI-compatible servers."""
 
     def __init__(
         self,
         base_url: str = "http://localhost:8000",
         model: str = "qwen3:8b",
+        api_key: str | None = None,
         timeout: float = 120.0,
     ):
         self.base_url = base_url.rstrip("/")
         self.model = model
+        self.api_key = api_key
         self.timeout = timeout
 
     async def generate(self, system_prompt: str, user_prompt: str) -> str:
@@ -29,11 +31,16 @@ class VLLMProvider(LLMProvider):
             "temperature": 0.1,
             "max_tokens": 4096,
         }
+        headers = {"Content-Type": "application/json"}
+        if self.api_key:
+            headers["Authorization"] = f"Bearer {self.api_key}"
+
         try:
             async with httpx.AsyncClient(timeout=self.timeout) as client:
                 response = await client.post(
                     f"{self.base_url}/v1/chat/completions",
                     json=payload,
+                    headers=headers,
                 )
                 if response.status_code != 200:
                     raise LLMProviderError(
