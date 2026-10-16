@@ -40,6 +40,15 @@ class FirstContribution(BaseModel):
     evidence: List[Evidence] = Field(default_factory=list)
 
 
+class ConfidenceBreakdown(BaseModel):
+    manifest_score: int = Field(default=80, ge=0, le=100)
+    evidence_score: int = Field(default=80, ge=0, le=100)
+    issue_score: int = Field(default=80, ge=0, le=100)
+    doc_score: int = Field(default=80, ge=0, le=100)
+    hallucination_penalty: int = Field(default=0)
+    reasons: List[str] = Field(default_factory=list)
+
+
 class OnboardingGuide(BaseModel):
     project_summary: str
     prerequisites: List[str] = Field(default_factory=list)
@@ -51,3 +60,7 @@ class OnboardingGuide(BaseModel):
     first_contribution: FirstContribution
     contribution_workflow: List[str] = Field(default_factory=list)
     warnings: List[str] = Field(default_factory=list)
+    confidence_score: int = Field(default=85, ge=0, le=100)
+    confidence_level: str = Field(default="High")  # "High" | "Moderate" | "Low"
+    confidence_breakdown: Optional[ConfidenceBreakdown] = None
+

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowLeft, RotateCcw } from 'lucide-react';
 import type { AnalysisResponse } from '../types/guide';
 import { RepositoryHeader } from '../components/RepositoryHeader';
+import { NewcomerQuickstart } from '../components/NewcomerQuickstart';
 import { ProjectSummary } from '../components/ProjectSummary';
 import { Prerequisites } from '../components/Prerequisites';
 import { SetupGuide } from '../components/SetupGuide';
@@ -19,6 +20,7 @@ interface GuideViewProps {
 
 export const GuideView: React.FC<GuideViewProps> = ({ data, onReset }) => {
   const { repository, guide, metadata } = data;
+  const [mode, setMode] = useState<'beginner' | 'deepdive'>('beginner');
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
@@ -40,55 +42,73 @@ export const GuideView: React.FC<GuideViewProps> = ({ data, onReset }) => {
       {/* 1. Repository Header */}
       <RepositoryHeader repository={repository} metadata={metadata} />
 
-      {/* 2. Project Summary & Where to Start */}
+      {/* 2. Newcomer Fast Track & Accuracy Gauge */}
+      <NewcomerQuickstart
+        guide={guide}
+        repository={repository}
+        activeMode={mode}
+        onToggleMode={setMode}
+      />
+
+      {/* 3. Project Summary & Where to Start */}
       <ProjectSummary
         summary={guide.project_summary}
         whereToStart={guide.where_to_start}
       />
 
-      {/* 3. Prerequisites */}
+      {/* 4. Prerequisites */}
       <Prerequisites prerequisites={guide.prerequisites} />
 
-      {/* 4. First Contribution Spotlight */}
+      {/* 5. First Contribution Spotlight */}
       <FirstContribution
         firstContribution={guide.first_contribution}
         repoUrl={repository.html_url}
         defaultBranch={repository.default_branch}
       />
 
-      {/* 5. Recommended Beginner Issues */}
+      {/* 6. Recommended Beginner Issues */}
       <IssueRecommendations
         issues={guide.recommended_issues}
         repoUrl={repository.html_url}
         defaultBranch={repository.default_branch}
       />
 
-      {/* 6. Setup Guide */}
+      {/* 7. Setup Guide */}
       <SetupGuide
         steps={guide.setup_steps}
         repoUrl={repository.html_url}
         defaultBranch={repository.default_branch}
       />
 
-      {/* 7. Run Locally */}
+      {/* 8. Run Locally */}
       <RunInstructions
         instructions={guide.run_instructions}
         repoUrl={repository.html_url}
         defaultBranch={repository.default_branch}
       />
 
-      {/* 8. Important Directories & Architecture */}
-      <DirectoryExplorer
-        directories={guide.important_directories}
-        repoUrl={repository.html_url}
-        defaultBranch={repository.default_branch}
-      />
+      {/* 9. Deep Dive Only Sections: Architecture, Workflow & Warnings */}
+      {mode === 'deepdive' && (
+        <div className="space-y-6 pt-4 border-t border-slate-800/60 animate-in fade-in duration-300">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">
+              Deep Dive Architecture
+            </span>
+            <span className="text-xs text-slate-400">Detailed file trees, contribution branching, and cautions</span>
+          </div>
 
-      {/* 9. Contribution Workflow */}
-      <ContributionWorkflow workflow={guide.contribution_workflow} />
+          <DirectoryExplorer
+            directories={guide.important_directories}
+            repoUrl={repository.html_url}
+            defaultBranch={repository.default_branch}
+          />
 
-      {/* 10. Warnings & Uncertainties */}
-      <WarningPanel warnings={guide.warnings} />
+          <ContributionWorkflow workflow={guide.contribution_workflow} />
+
+          <WarningPanel warnings={guide.warnings} />
+        </div>
+      )}
+
 
       {/* Bottom CTA */}
       <div className="text-center py-12 border-t border-slate-800/80 mt-12">

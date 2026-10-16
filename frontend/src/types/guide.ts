@@ -36,6 +36,15 @@ export interface FirstContribution {
   evidence: Evidence[];
 }
 
+export interface ConfidenceBreakdown {
+  manifest_score: number;
+  evidence_score: number;
+  issue_score: number;
+  doc_score: number;
+  hallucination_penalty: number;
+  reasons: string[];
+}
+
 export interface OnboardingGuide {
   project_summary: string;
   prerequisites: string[];
@@ -47,7 +56,11 @@ export interface OnboardingGuide {
   first_contribution: FirstContribution;
   contribution_workflow: string[];
   warnings: string[];
+  confidence_score?: number;
+  confidence_level?: "High" | "Moderate" | "Low" | string;
+  confidence_breakdown?: ConfidenceBreakdown;
 }
+
 
 export interface RepositoryMetadata {
   owner: string;
