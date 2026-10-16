@@ -36,6 +36,7 @@ export interface FirstContribution {
   evidence: Evidence[];
 }
 
+<<<<<<< HEAD
 export interface ConfidenceBreakdown {
   manifest_score: number;
   evidence_score: number;
@@ -43,6 +44,48 @@ export interface ConfidenceBreakdown {
   doc_score: number;
   hallucination_penalty: number;
   reasons: string[];
+=======
+export interface ExecutionPlanStep {
+  step: number;
+  action: string;
+  target_files: string[];
+  command?: string | null;
+  verification: string;
+}
+
+export interface ExecutionPlan {
+  id: string;
+  title: string;
+  target_persona: string;
+  time_estimate: string;
+  difficulty: "Beginner" | "Intermediate" | "Advanced" | string;
+  goal: string;
+  steps: ExecutionPlanStep[];
+  key_files: string[];
+  tips: string[];
+}
+
+export interface ArchitectureLifecycleStage {
+  stage: number;
+  name: string;
+  description: string;
+  representative_files: string[];
+}
+
+export interface DeepArchitecture {
+  pattern: string;
+  explanation: string;
+  lifecycle_stages: ArchitectureLifecycleStage[];
+  data_flow_summary: string;
+  hotspots_and_gotchas: string[];
+}
+
+export interface CopilotDiffPoint {
+  feature: string;
+  copilot_approach: string;
+  git_analyzer_advantage: string;
+  technical_reason: string;
+>>>>>>> 24723acbc0e4ff7a21789f33c757c4ab3fc12104
 }
 
 export interface OnboardingGuide {
@@ -55,6 +98,9 @@ export interface OnboardingGuide {
   recommended_issues: RecommendedIssue[];
   first_contribution: FirstContribution;
   contribution_workflow: string[];
+  execution_plans?: ExecutionPlan[];
+  deep_architecture?: DeepArchitecture | null;
+  differentiation_matrix?: CopilotDiffPoint[];
   warnings: string[];
   confidence_score?: number;
   confidence_level?: "High" | "Moderate" | "Low" | string;

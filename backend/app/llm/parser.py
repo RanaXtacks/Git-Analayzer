@@ -84,6 +84,35 @@ def parse_guide_response(text: str) -> OnboardingGuide:
             "evidence": [],
         }
 
+    # Ensure differentiation_matrix is always present
+    if "differentiation_matrix" not in raw_dict or not raw_dict["differentiation_matrix"]:
+        from app.llm.deterministic import _build_deterministic_diff_matrix
+        raw_dict["differentiation_matrix"] = _build_deterministic_diff_matrix()
+
+    # Ensure execution_plans has at least fallback plans if model omitted it
+    if "execution_plans" not in raw_dict or not raw_dict["execution_plans"]:
+        from app.llm.deterministic import _build_deterministic_execution_plans
+        raw_dict["execution_plans"] = _build_deterministic_execution_plans(
+            meta={"name": "repository", "html_url": "https://github.com/repository"},
+            deps={"install_command": None, "dev_command": None, "test_command": None, "manifests_present": []},
+            struct={"likely_entry_points": []},
+            cfg={},
+            first_contrib_files=raw_dict.get("first_contribution", {}).get("suggested_files", []),
+            important_dirs=raw_dict.get("important_directories", []),
+            issues=raw_dict.get("recommended_issues", []),
+        )
+
+    # Ensure deep_architecture has at least fallback if omitted
+    if "deep_architecture" not in raw_dict or not raw_dict["deep_architecture"]:
+        from app.llm.deterministic import _build_deterministic_deep_architecture
+        raw_dict["deep_architecture"] = _build_deterministic_deep_architecture(
+            meta={"name": "repository"},
+            deps={"key_dependencies": []},
+            struct={"likely_entry_points": []},
+            cfg={},
+            important_dirs=raw_dict.get("important_directories", []),
+        )
+
     try:
         return OnboardingGuide.model_validate(raw_dict)
     except ValidationError as e:

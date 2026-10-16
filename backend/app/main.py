@@ -22,7 +22,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger("git_analyzer")
 
-# Rate Limiter setup
+# Rate Limiter setup (auto-reloaded)
 limiter = Limiter(key_func=get_remote_address) if HAS_SLOWAPI else None
 
 

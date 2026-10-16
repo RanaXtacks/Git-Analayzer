@@ -99,3 +99,49 @@ def test_evidence_verifier_removes_hallucinated_issue():
     assert any("Removed hallucinated issue #999" in w for w in verified.warnings)
     # Nonexistent file must be removed from first contribution
     assert "nonexistent_file.py" not in verified.first_contribution.suggested_files
+
+
+@pytest.mark.asyncio
+async def test_deterministic_provider_generates_deep_plans_and_diff_matrix():
+    from app.llm.deterministic import DeterministicProvider
+    from app.llm.prompts import SYSTEM_PROMPT, build_user_prompt
+
+    context = RepositoryContext(
+        metadata=RepositoryMetadata(
+            owner="facebook", name="react", full_name="facebook/react", html_url="https://github.com/facebook/react"
+        ),
+        structure=StructureAnalysisResult(
+            compact_tree="packages/react/index.js\npackages/react-dom/index.js",
+            total_files=2,
+            important_directories=["packages/react", "packages/react-dom"],
+            likely_entry_points=["packages/react/index.js"],
+        ),
+        dependencies=DependencyAnalysisResult(
+            language="JavaScript",
+            package_manager="yarn",
+            install_command="yarn install",
+            dev_command="yarn start",
+            test_command="yarn test",
+        ),
+        configuration=ConfigurationAnalysisResult(),
+        ranked_issues=[],
+        raw_files={"packages/react/index.js": "// React index"},
+    )
+
+    user_prompt = build_user_prompt(context)
+    provider = DeterministicProvider()
+    raw = await provider.generate(SYSTEM_PROMPT, user_prompt)
+    guide = parse_guide_response(raw)
+
+    assert len(guide.execution_plans) == 4
+    plan_ids = [p.id for p in guide.execution_plans]
+    assert "day_one" in plan_ids
+    assert "deep_architecture" in plan_ids
+    assert "bug_hunt" in plan_ids
+    assert "system_extender" in plan_ids
+
+    assert guide.deep_architecture is not None
+    assert len(guide.deep_architecture.lifecycle_stages) >= 4
+    assert len(guide.differentiation_matrix) >= 5
+    assert any("Zero-Hallucination" in d.feature for d in guide.differentiation_matrix)
+

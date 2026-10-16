@@ -1,0 +1,3474 @@
+{
+  "nodes": [
+    {
+      "id": "file:backend/app/analyzer/configuration.py",
+      "type": "file",
+      "name": "backend/app/analyzer/configuration.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/analyzer/configuration.py:analyze",
+      "type": "function",
+      "name": "analyze",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/configuration.py",
+        "lineno": 9
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/configuration.py:_extract_env_vars",
+      "type": "function",
+      "name": "_extract_env_vars",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/configuration.py",
+        "lineno": 46
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/configuration.py:_extract_ci_commands",
+      "type": "function",
+      "name": "_extract_ci_commands",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/configuration.py",
+        "lineno": 58
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/configuration.py:_extract_make_targets",
+      "type": "function",
+      "name": "_extract_make_targets",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/configuration.py",
+        "lineno": 69
+      }
+    },
+    {
+      "id": "file:backend/app/analyzer/dependencies.py",
+      "type": "file",
+      "name": "backend/app/analyzer/dependencies.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/analyzer/dependencies.py:parse_package_json",
+      "type": "function",
+      "name": "parse_package_json",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/dependencies.py",
+        "lineno": 21
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/dependencies.py:parse_requirements_txt",
+      "type": "function",
+      "name": "parse_requirements_txt",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/dependencies.py",
+        "lineno": 87
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/dependencies.py:parse_pyproject_toml",
+      "type": "function",
+      "name": "parse_pyproject_toml",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/dependencies.py",
+        "lineno": 109
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/dependencies.py:parse_cargo_toml",
+      "type": "function",
+      "name": "parse_cargo_toml",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/dependencies.py",
+        "lineno": 173
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/dependencies.py:parse_go_mod",
+      "type": "function",
+      "name": "parse_go_mod",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/dependencies.py",
+        "lineno": 204
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/dependencies.py:parse_pom_xml",
+      "type": "function",
+      "name": "parse_pom_xml",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/dependencies.py",
+        "lineno": 238
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/dependencies.py:parse_gemfile",
+      "type": "function",
+      "name": "parse_gemfile",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/dependencies.py",
+        "lineno": 265
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/dependencies.py:parse_composer_json",
+      "type": "function",
+      "name": "parse_composer_json",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/dependencies.py",
+        "lineno": 286
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/dependencies.py:analyze",
+      "type": "function",
+      "name": "analyze",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/dependencies.py",
+        "lineno": 313
+      }
+    },
+    {
+      "id": "file:backend/app/analyzer/issues.py",
+      "type": "file",
+      "name": "backend/app/analyzer/issues.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/analyzer/issues.py:score_issue",
+      "type": "function",
+      "name": "score_issue",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/issues.py",
+        "lineno": 39
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/issues.py:rank_issues",
+      "type": "function",
+      "name": "rank_issues",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/issues.py",
+        "lineno": 95
+      }
+    },
+    {
+      "id": "file:backend/app/analyzer/repository.py",
+      "type": "file",
+      "name": "backend/app/analyzer/repository.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/analyzer/repository.py:__init__",
+      "type": "function",
+      "name": "__init__",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/repository.py",
+        "lineno": 18
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/repository.py:analyze_structure",
+      "type": "function",
+      "name": "analyze_structure",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/repository.py",
+        "lineno": 24
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/repository.py:analyze_dependencies",
+      "type": "function",
+      "name": "analyze_dependencies",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/repository.py",
+        "lineno": 27
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/repository.py:analyze_configuration",
+      "type": "function",
+      "name": "analyze_configuration",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/repository.py",
+        "lineno": 30
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/repository.py:rank_issues",
+      "type": "function",
+      "name": "rank_issues",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/repository.py",
+        "lineno": 33
+      }
+    },
+    {
+      "id": "file:backend/app/analyzer/structure.py",
+      "type": "file",
+      "name": "backend/app/analyzer/structure.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/analyzer/structure.py:__init__",
+      "type": "function",
+      "name": "__init__",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/structure.py",
+        "lineno": 71
+      }
+    },
+    {
+      "id": "func:backend/app/analyzer/structure.py:analyze",
+      "type": "function",
+      "name": "analyze",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/structure.py",
+        "lineno": 74
+      }
+    },
+    {
+      "id": "file:backend/app/analyzer/__init__.py",
+      "type": "file",
+      "name": "backend/app/analyzer/__init__.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/analyzer/__init__.py:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/analyzer/__init__.py",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:backend/app/api/dependencies.py",
+      "type": "file",
+      "name": "backend/app/api/dependencies.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/api/dependencies.py:get_cache",
+      "type": "function",
+      "name": "get_cache",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/api/dependencies.py",
+        "lineno": 17
+      }
+    },
+    {
+      "id": "func:backend/app/api/dependencies.py:get_github_client",
+      "type": "function",
+      "name": "get_github_client",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/api/dependencies.py",
+        "lineno": 28
+      }
+    },
+    {
+      "id": "func:backend/app/api/dependencies.py:get_analyzer",
+      "type": "function",
+      "name": "get_analyzer",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/api/dependencies.py",
+        "lineno": 36
+      }
+    },
+    {
+      "id": "func:backend/app/api/dependencies.py:get_llm_provider",
+      "type": "function",
+      "name": "get_llm_provider",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/api/dependencies.py",
+        "lineno": 41
+      }
+    },
+    {
+      "id": "func:backend/app/api/dependencies.py:get_active_analyses_map",
+      "type": "function",
+      "name": "get_active_analyses_map",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/api/dependencies.py",
+        "lineno": 62
+      }
+    },
+    {
+      "id": "file:backend/app/api/routes.py",
+      "type": "file",
+      "name": "backend/app/api/routes.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/api/routes.py:health_check",
+      "type": "function",
+      "name": "health_check",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/api/routes.py",
+        "lineno": 43
+      }
+    },
+    {
+      "id": "func:backend/app/api/routes.py:get_repository_status",
+      "type": "function",
+      "name": "get_repository_status",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/api/routes.py",
+        "lineno": 60
+      }
+    },
+    {
+      "id": "func:backend/app/api/routes.py:analyze_repository_sync",
+      "type": "function",
+      "name": "analyze_repository_sync",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/api/routes.py",
+        "lineno": 76
+      }
+    },
+    {
+      "id": "func:backend/app/api/routes.py:analyze_repository_stream",
+      "type": "function",
+      "name": "analyze_repository_stream",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/api/routes.py",
+        "lineno": 168
+      }
+    },
+    {
+      "id": "func:backend/app/api/routes.py:event_generator",
+      "type": "function",
+      "name": "event_generator",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/api/routes.py",
+        "lineno": 184
+      }
+    },
+    {
+      "id": "func:backend/app/api/routes.py:progress_callback",
+      "type": "function",
+      "name": "progress_callback",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/api/routes.py",
+        "lineno": 238
+      }
+    },
+    {
+      "id": "func:backend/app/api/routes.py:run_context_and_generation",
+      "type": "function",
+      "name": "run_context_and_generation",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/api/routes.py",
+        "lineno": 245
+      }
+    },
+    {
+      "id": "func:backend/app/api/routes.py:sse_stream",
+      "type": "function",
+      "name": "sse_stream",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/api/routes.py",
+        "lineno": 335
+      }
+    },
+    {
+      "id": "file:backend/app/api/__init__.py",
+      "type": "file",
+      "name": "backend/app/api/__init__.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/api/__init__.py:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/api/__init__.py",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:backend/app/cache/service.py",
+      "type": "file",
+      "name": "backend/app/cache/service.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/cache/service.py:get",
+      "type": "function",
+      "name": "get",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/cache/service.py",
+        "lineno": 14
+      }
+    },
+    {
+      "id": "func:backend/app/cache/service.py:set",
+      "type": "function",
+      "name": "set",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/cache/service.py",
+        "lineno": 18
+      }
+    },
+    {
+      "id": "func:backend/app/cache/service.py:delete",
+      "type": "function",
+      "name": "delete",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/cache/service.py",
+        "lineno": 22
+      }
+    },
+    {
+      "id": "func:backend/app/cache/service.py:__init__",
+      "type": "function",
+      "name": "__init__",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/cache/service.py",
+        "lineno": 29
+      }
+    },
+    {
+      "id": "func:backend/app/cache/service.py:_get_client",
+      "type": "function",
+      "name": "_get_client",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/cache/service.py",
+        "lineno": 55
+      }
+    },
+    {
+      "id": "func:backend/app/cache/service.py:build_cache_key",
+      "type": "function",
+      "name": "build_cache_key",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/cache/service.py",
+        "lineno": 86
+      }
+    },
+    {
+      "id": "file:backend/app/cache/__init__.py",
+      "type": "file",
+      "name": "backend/app/cache/__init__.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/cache/__init__.py:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/cache/__init__.py",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:backend/app/config.py",
+      "type": "file",
+      "name": "backend/app/config.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/config.py:assemble_cors_origins",
+      "type": "function",
+      "name": "assemble_cors_origins",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/config.py",
+        "lineno": 20
+      }
+    },
+    {
+      "id": "func:backend/app/config.py:get_settings",
+      "type": "function",
+      "name": "get_settings",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/config.py",
+        "lineno": 76
+      }
+    },
+    {
+      "id": "file:backend/app/context/builder.py",
+      "type": "file",
+      "name": "backend/app/context/builder.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/context/builder.py:__init__",
+      "type": "function",
+      "name": "__init__",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/context/builder.py",
+        "lineno": 19
+      }
+    },
+    {
+      "id": "func:backend/app/context/builder.py:build",
+      "type": "function",
+      "name": "build",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/context/builder.py",
+        "lineno": 33
+      }
+    },
+    {
+      "id": "func:backend/app/context/builder.py:notify",
+      "type": "function",
+      "name": "notify",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/context/builder.py",
+        "lineno": 41
+      }
+    },
+    {
+      "id": "file:backend/app/context/sanitizer.py",
+      "type": "file",
+      "name": "backend/app/context/sanitizer.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/context/sanitizer.py:is_sensitive_file",
+      "type": "function",
+      "name": "is_sensitive_file",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/context/sanitizer.py",
+        "lineno": 35
+      }
+    },
+    {
+      "id": "func:backend/app/context/sanitizer.py:sanitize_content",
+      "type": "function",
+      "name": "sanitize_content",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/context/sanitizer.py",
+        "lineno": 43
+      }
+    },
+    {
+      "id": "file:backend/app/context/selector.py",
+      "type": "file",
+      "name": "backend/app/context/selector.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/context/selector.py:__init__",
+      "type": "function",
+      "name": "__init__",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/context/selector.py",
+        "lineno": 7
+      }
+    },
+    {
+      "id": "func:backend/app/context/selector.py:truncate_text",
+      "type": "function",
+      "name": "truncate_text",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/context/selector.py",
+        "lineno": 11
+      }
+    },
+    {
+      "id": "func:backend/app/context/selector.py:prepare_readme",
+      "type": "function",
+      "name": "prepare_readme",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/context/selector.py",
+        "lineno": 24
+      }
+    },
+    {
+      "id": "func:backend/app/context/selector.py:prepare_contributing",
+      "type": "function",
+      "name": "prepare_contributing",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/context/selector.py",
+        "lineno": 27
+      }
+    },
+    {
+      "id": "func:backend/app/context/selector.py:prepare_raw_files",
+      "type": "function",
+      "name": "prepare_raw_files",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/context/selector.py",
+        "lineno": 30
+      }
+    },
+    {
+      "id": "file:backend/app/context/__init__.py",
+      "type": "file",
+      "name": "backend/app/context/__init__.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/context/__init__.py:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/context/__init__.py",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:backend/app/db/database.py",
+      "type": "file",
+      "name": "backend/app/db/database.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/db/database.py:get_engine",
+      "type": "function",
+      "name": "get_engine",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/db/database.py",
+        "lineno": 13
+      }
+    },
+    {
+      "id": "func:backend/app/db/database.py:get_session_maker",
+      "type": "function",
+      "name": "get_session_maker",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/db/database.py",
+        "lineno": 25
+      }
+    },
+    {
+      "id": "func:backend/app/db/database.py:init_db",
+      "type": "function",
+      "name": "init_db",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/db/database.py",
+        "lineno": 37
+      }
+    },
+    {
+      "id": "func:backend/app/db/database.py:get_db_session",
+      "type": "function",
+      "name": "get_db_session",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/db/database.py",
+        "lineno": 53
+      }
+    },
+    {
+      "id": "file:backend/app/db/models.py",
+      "type": "file",
+      "name": "backend/app/db/models.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/db/models.py:__repr__",
+      "type": "function",
+      "name": "__repr__",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/db/models.py",
+        "lineno": 20
+      }
+    },
+    {
+      "id": "file:backend/app/db/__init__.py",
+      "type": "file",
+      "name": "backend/app/db/__init__.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/db/__init__.py:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/db/__init__.py",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:backend/app/github/client.py",
+      "type": "file",
+      "name": "backend/app/github/client.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/github/client.py:__init__",
+      "type": "function",
+      "name": "__init__",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/client.py",
+        "lineno": 14
+      }
+    },
+    {
+      "id": "func:backend/app/github/client.py:close",
+      "type": "function",
+      "name": "close",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/client.py",
+        "lineno": 62
+      }
+    },
+    {
+      "id": "func:backend/app/github/client.py:_handle_response",
+      "type": "function",
+      "name": "_handle_response",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/client.py",
+        "lineno": 65
+      }
+    },
+    {
+      "id": "func:backend/app/github/client.py:get_repository",
+      "type": "function",
+      "name": "get_repository",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/client.py",
+        "lineno": 87
+      }
+    },
+    {
+      "id": "func:backend/app/github/client.py:get_readme",
+      "type": "function",
+      "name": "get_readme",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/client.py",
+        "lineno": 129
+      }
+    },
+    {
+      "id": "func:backend/app/github/client.py:get_file_content",
+      "type": "function",
+      "name": "get_file_content",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/client.py",
+        "lineno": 147
+      }
+    },
+    {
+      "id": "func:backend/app/github/client.py:get_tree",
+      "type": "function",
+      "name": "get_tree",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/client.py",
+        "lineno": 168
+      }
+    },
+    {
+      "id": "func:backend/app/github/client.py:get_issues",
+      "type": "function",
+      "name": "get_issues",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/client.py",
+        "lineno": 198
+      }
+    },
+    {
+      "id": "file:backend/app/github/files.py",
+      "type": "file",
+      "name": "backend/app/github/files.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/github/files.py:extract_readme",
+      "type": "function",
+      "name": "extract_readme",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/files.py",
+        "lineno": 55
+      }
+    },
+    {
+      "id": "func:backend/app/github/files.py:extract_contributing",
+      "type": "function",
+      "name": "extract_contributing",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/files.py",
+        "lineno": 69
+      }
+    },
+    {
+      "id": "func:backend/app/github/files.py:extract_priority_files",
+      "type": "function",
+      "name": "extract_priority_files",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/files.py",
+        "lineno": 78
+      }
+    },
+    {
+      "id": "func:backend/app/github/files.py:fetch_single",
+      "type": "function",
+      "name": "fetch_single",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/files.py",
+        "lineno": 104
+      }
+    },
+    {
+      "id": "file:backend/app/github/issues.py",
+      "type": "file",
+      "name": "backend/app/github/issues.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/github/issues.py:extract_issues",
+      "type": "function",
+      "name": "extract_issues",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/issues.py",
+        "lineno": 6
+      }
+    },
+    {
+      "id": "file:backend/app/github/repository.py",
+      "type": "file",
+      "name": "backend/app/github/repository.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/github/repository.py:parse_and_validate_github_url",
+      "type": "function",
+      "name": "parse_and_validate_github_url",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/repository.py",
+        "lineno": 19
+      }
+    },
+    {
+      "id": "file:backend/app/github/__init__.py",
+      "type": "file",
+      "name": "backend/app/github/__init__.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/github/__init__.py:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/github/__init__.py",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:backend/app/guide/generator.py",
+      "type": "file",
+      "name": "backend/app/guide/generator.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/guide/generator.py:__init__",
+      "type": "function",
+      "name": "__init__",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/guide/generator.py",
+        "lineno": 18
+      }
+    },
+    {
+      "id": "func:backend/app/guide/generator.py:generate_guide",
+      "type": "function",
+      "name": "generate_guide",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/guide/generator.py",
+        "lineno": 22
+      }
+    },
+    {
+      "id": "file:backend/app/guide/verifier.py",
+      "type": "file",
+      "name": "backend/app/guide/verifier.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/guide/verifier.py:verify_guide",
+      "type": "function",
+      "name": "verify_guide",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/guide/verifier.py",
+        "lineno": 17
+      }
+    },
+    {
+      "id": "file:backend/app/guide/__init__.py",
+      "type": "file",
+      "name": "backend/app/guide/__init__.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/guide/__init__.py:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/guide/__init__.py",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:backend/app/llm/base.py",
+      "type": "file",
+      "name": "backend/app/llm/base.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/llm/base.py:generate",
+      "type": "function",
+      "name": "generate",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/base.py",
+        "lineno": 23
+      }
+    },
+    {
+      "id": "func:backend/app/llm/base.py:health_check",
+      "type": "function",
+      "name": "health_check",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/base.py",
+        "lineno": 31
+      }
+    },
+    {
+      "id": "file:backend/app/llm/deterministic.py",
+      "type": "file",
+      "name": "backend/app/llm/deterministic.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/llm/deterministic.py:health_check",
+      "type": "function",
+      "name": "health_check",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/deterministic.py",
+        "lineno": 17
+      }
+    },
+    {
+      "id": "func:backend/app/llm/deterministic.py:generate",
+      "type": "function",
+      "name": "generate",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/deterministic.py",
+        "lineno": 20
+      }
+    },
+    {
+      "id": "file:backend/app/llm/ollama.py",
+      "type": "file",
+      "name": "backend/app/llm/ollama.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/llm/ollama.py:__init__",
+      "type": "function",
+      "name": "__init__",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/ollama.py",
+        "lineno": 11
+      }
+    },
+    {
+      "id": "func:backend/app/llm/ollama.py:generate",
+      "type": "function",
+      "name": "generate",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/ollama.py",
+        "lineno": 23
+      }
+    },
+    {
+      "id": "func:backend/app/llm/ollama.py:health_check",
+      "type": "function",
+      "name": "health_check",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/ollama.py",
+        "lineno": 59
+      }
+    },
+    {
+      "id": "file:backend/app/llm/parser.py",
+      "type": "file",
+      "name": "backend/app/llm/parser.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/llm/parser.py:__init__",
+      "type": "function",
+      "name": "__init__",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/parser.py",
+        "lineno": 14
+      }
+    },
+    {
+      "id": "func:backend/app/llm/parser.py:extract_json_from_text",
+      "type": "function",
+      "name": "extract_json_from_text",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/parser.py",
+        "lineno": 19
+      }
+    },
+    {
+      "id": "func:backend/app/llm/parser.py:parse_guide_response",
+      "type": "function",
+      "name": "parse_guide_response",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/parser.py",
+        "lineno": 60
+      }
+    },
+    {
+      "id": "table:target",
+      "type": "table",
+      "name": "target",
+      "source_system": "inferred_from_code",
+      "metadata": {
+        "inferred": true
+      }
+    },
+    {
+      "id": "table:red",
+      "type": "table",
+      "name": "red",
+      "source_system": "inferred_from_code",
+      "metadata": {
+        "inferred": true
+      }
+    },
+    {
+      "id": "table:git",
+      "type": "table",
+      "name": "git",
+      "source_system": "inferred_from_code",
+      "metadata": {
+        "inferred": true
+      }
+    },
+    {
+      "id": "file:backend/app/llm/prompts.py",
+      "type": "file",
+      "name": "backend/app/llm/prompts.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/llm/prompts.py:build_user_prompt",
+      "type": "function",
+      "name": "build_user_prompt",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/prompts.py",
+        "lineno": 164
+      }
+    },
+    {
+      "id": "file:backend/app/llm/vllm.py",
+      "type": "file",
+      "name": "backend/app/llm/vllm.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/llm/vllm.py:__init__",
+      "type": "function",
+      "name": "__init__",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/vllm.py",
+        "lineno": 11
+      }
+    },
+    {
+      "id": "func:backend/app/llm/vllm.py:generate",
+      "type": "function",
+      "name": "generate",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/vllm.py",
+        "lineno": 23
+      }
+    },
+    {
+      "id": "func:backend/app/llm/vllm.py:health_check",
+      "type": "function",
+      "name": "health_check",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/vllm.py",
+        "lineno": 61
+      }
+    },
+    {
+      "id": "file:backend/app/llm/__init__.py",
+      "type": "file",
+      "name": "backend/app/llm/__init__.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/llm/__init__.py:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/llm/__init__.py",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:backend/app/main.py",
+      "type": "file",
+      "name": "backend/app/main.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/main.py:lifespan",
+      "type": "function",
+      "name": "lifespan",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/main.py",
+        "lineno": 30
+      }
+    },
+    {
+      "id": "func:backend/app/main.py:create_app",
+      "type": "function",
+      "name": "create_app",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/main.py",
+        "lineno": 43
+      }
+    },
+    {
+      "id": "func:backend/app/main.py:global_exception_handler",
+      "type": "function",
+      "name": "global_exception_handler",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/main.py",
+        "lineno": 69
+      }
+    },
+    {
+      "id": "file:backend/app/models/guide.py",
+      "type": "file",
+      "name": "backend/app/models/guide.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/models/guide.py:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/models/guide.py",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:backend/app/models/issue.py",
+      "type": "file",
+      "name": "backend/app/models/issue.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/models/issue.py:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/models/issue.py",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:backend/app/models/repository.py",
+      "type": "file",
+      "name": "backend/app/models/repository.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/models/repository.py:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/models/repository.py",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:backend/app/models/__init__.py",
+      "type": "file",
+      "name": "backend/app/models/__init__.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/models/__init__.py:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/models/__init__.py",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:backend/app/__init__.py",
+      "type": "file",
+      "name": "backend/app/__init__.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/app/__init__.py:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/app/__init__.py",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:backend/tests/test_api.py",
+      "type": "file",
+      "name": "backend/tests/test_api.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/tests/test_api.py:generate",
+      "type": "function",
+      "name": "generate",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_api.py",
+        "lineno": 11
+      }
+    },
+    {
+      "id": "func:backend/tests/test_api.py:health_check",
+      "type": "function",
+      "name": "health_check",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_api.py",
+        "lineno": 39
+      }
+    },
+    {
+      "id": "func:backend/tests/test_api.py:client",
+      "type": "function",
+      "name": "client",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_api.py",
+        "lineno": 44
+      }
+    },
+    {
+      "id": "func:backend/tests/test_api.py:test_health_endpoint",
+      "type": "function",
+      "name": "test_health_endpoint",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_api.py",
+        "lineno": 48
+      }
+    },
+    {
+      "id": "func:backend/tests/test_api.py:test_analyze_rejects_invalid_url",
+      "type": "function",
+      "name": "test_analyze_rejects_invalid_url",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_api.py",
+        "lineno": 56
+      }
+    },
+    {
+      "id": "func:backend/tests/test_api.py:test_analyze_sync_success",
+      "type": "function",
+      "name": "test_analyze_sync_success",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_api.py",
+        "lineno": 64
+      }
+    },
+    {
+      "id": "file:backend/tests/test_context_sanitizer.py",
+      "type": "file",
+      "name": "backend/tests/test_context_sanitizer.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/tests/test_context_sanitizer.py:test_sensitive_file_detection",
+      "type": "function",
+      "name": "test_sensitive_file_detection",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_context_sanitizer.py",
+        "lineno": 4
+      }
+    },
+    {
+      "id": "func:backend/tests/test_context_sanitizer.py:test_secret_content_sanitization",
+      "type": "function",
+      "name": "test_secret_content_sanitization",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_context_sanitizer.py",
+        "lineno": 16
+      }
+    },
+    {
+      "id": "file:backend/tests/test_dependency_analyzer.py",
+      "type": "file",
+      "name": "backend/tests/test_dependency_analyzer.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/tests/test_dependency_analyzer.py:test_parse_package_json",
+      "type": "function",
+      "name": "test_parse_package_json",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_dependency_analyzer.py",
+        "lineno": 12
+      }
+    },
+    {
+      "id": "func:backend/tests/test_dependency_analyzer.py:test_parse_requirements_txt",
+      "type": "function",
+      "name": "test_parse_requirements_txt",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_dependency_analyzer.py",
+        "lineno": 38
+      }
+    },
+    {
+      "id": "func:backend/tests/test_dependency_analyzer.py:test_parse_cargo_toml",
+      "type": "function",
+      "name": "test_parse_cargo_toml",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_dependency_analyzer.py",
+        "lineno": 54
+      }
+    },
+    {
+      "id": "func:backend/tests/test_dependency_analyzer.py:test_parse_go_mod",
+      "type": "function",
+      "name": "test_parse_go_mod",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_dependency_analyzer.py",
+        "lineno": 73
+      }
+    },
+    {
+      "id": "func:backend/tests/test_dependency_analyzer.py:test_parse_pom_xml",
+      "type": "function",
+      "name": "test_parse_pom_xml",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_dependency_analyzer.py",
+        "lineno": 91
+      }
+    },
+    {
+      "id": "func:backend/tests/test_dependency_analyzer.py:test_dependency_analyzer_priority",
+      "type": "function",
+      "name": "test_dependency_analyzer_priority",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_dependency_analyzer.py",
+        "lineno": 108
+      }
+    },
+    {
+      "id": "file:backend/tests/test_issue_ranking.py",
+      "type": "file",
+      "name": "backend/tests/test_issue_ranking.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/tests/test_issue_ranking.py:test_issue_ranking_scores_beginner_higher_than_architectural",
+      "type": "function",
+      "name": "test_issue_ranking_scores_beginner_higher_than_architectural",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_issue_ranking.py",
+        "lineno": 5
+      }
+    },
+    {
+      "id": "file:backend/tests/test_llm_parser.py",
+      "type": "file",
+      "name": "backend/tests/test_llm_parser.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/tests/test_llm_parser.py:test_extract_json_from_markdown_block",
+      "type": "function",
+      "name": "test_extract_json_from_markdown_block",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_llm_parser.py",
+        "lineno": 9
+      }
+    },
+    {
+      "id": "func:backend/tests/test_llm_parser.py:test_extract_json_invalid",
+      "type": "function",
+      "name": "test_extract_json_invalid",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_llm_parser.py",
+        "lineno": 38
+      }
+    },
+    {
+      "id": "func:backend/tests/test_llm_parser.py:test_evidence_verifier_removes_hallucinated_issue",
+      "type": "function",
+      "name": "test_evidence_verifier_removes_hallucinated_issue",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_llm_parser.py",
+        "lineno": 43
+      }
+    },
+    {
+      "id": "func:backend/tests/test_llm_parser.py:test_deep_explanation_and_execution_plans_auto_synthesized",
+      "type": "function",
+      "name": "test_deep_explanation_and_execution_plans_auto_synthesized",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_llm_parser.py",
+        "lineno": 104
+      }
+    },
+    {
+      "id": "func:backend/tests/test_llm_parser.py:test_deterministic_provider_generates_deep_plans",
+      "type": "function",
+      "name": "test_deterministic_provider_generates_deep_plans",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_llm_parser.py",
+        "lineno": 127
+      }
+    },
+    {
+      "id": "file:backend/tests/test_structure_analyzer.py",
+      "type": "file",
+      "name": "backend/tests/test_structure_analyzer.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/tests/test_structure_analyzer.py:test_structure_analyzer_filters_noise_and_detects_dirs",
+      "type": "function",
+      "name": "test_structure_analyzer_filters_noise_and_detects_dirs",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_structure_analyzer.py",
+        "lineno": 5
+      }
+    },
+    {
+      "id": "func:backend/tests/test_structure_analyzer.py:test_structure_analyzer_truncation",
+      "type": "function",
+      "name": "test_structure_analyzer_truncation",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_structure_analyzer.py",
+        "lineno": 26
+      }
+    },
+    {
+      "id": "file:backend/tests/test_url_parser.py",
+      "type": "file",
+      "name": "backend/tests/test_url_parser.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/tests/test_url_parser.py:test_valid_github_url",
+      "type": "function",
+      "name": "test_valid_github_url",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_url_parser.py",
+        "lineno": 5
+      }
+    },
+    {
+      "id": "func:backend/tests/test_url_parser.py:test_valid_github_url_trailing_slash",
+      "type": "function",
+      "name": "test_valid_github_url_trailing_slash",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_url_parser.py",
+        "lineno": 11
+      }
+    },
+    {
+      "id": "func:backend/tests/test_url_parser.py:test_valid_github_url_with_git_suffix",
+      "type": "function",
+      "name": "test_valid_github_url_with_git_suffix",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_url_parser.py",
+        "lineno": 17
+      }
+    },
+    {
+      "id": "func:backend/tests/test_url_parser.py:test_reject_invalid_domain",
+      "type": "function",
+      "name": "test_reject_invalid_domain",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_url_parser.py",
+        "lineno": 23
+      }
+    },
+    {
+      "id": "func:backend/tests/test_url_parser.py:test_reject_user_profile",
+      "type": "function",
+      "name": "test_reject_user_profile",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_url_parser.py",
+        "lineno": 28
+      }
+    },
+    {
+      "id": "func:backend/tests/test_url_parser.py:test_reject_subpath",
+      "type": "function",
+      "name": "test_reject_subpath",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_url_parser.py",
+        "lineno": 33
+      }
+    },
+    {
+      "id": "func:backend/tests/test_url_parser.py:test_reject_reserved_route",
+      "type": "function",
+      "name": "test_reject_reserved_route",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_url_parser.py",
+        "lineno": 38
+      }
+    },
+    {
+      "id": "func:backend/tests/test_url_parser.py:test_reject_empty_or_malformed",
+      "type": "function",
+      "name": "test_reject_empty_or_malformed",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/test_url_parser.py",
+        "lineno": 43
+      }
+    },
+    {
+      "id": "file:backend/tests/__init__.py",
+      "type": "file",
+      "name": "backend/tests/__init__.py",
+      "source_system": "python"
+    },
+    {
+      "id": "func:backend/tests/__init__.py:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "python",
+      "metadata": {
+        "file": "backend/tests/__init__.py",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/src/App.tsx",
+      "type": "file",
+      "name": "frontend/src/App.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/App.tsx:handleStartAnalysis",
+      "type": "function",
+      "name": "handleStartAnalysis",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/App.tsx",
+        "lineno": 24
+      }
+    },
+    {
+      "id": "func:frontend/src/App.tsx:handleRetry",
+      "type": "function",
+      "name": "handleRetry",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/App.tsx",
+        "lineno": 29
+      }
+    },
+    {
+      "id": "file:frontend/src/components/AnalysisProgress.tsx",
+      "type": "file",
+      "name": "frontend/src/components/AnalysisProgress.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/AnalysisProgress.tsx:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/AnalysisProgress.tsx",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/src/components/ContributionWorkflow.tsx",
+      "type": "file",
+      "name": "frontend/src/components/ContributionWorkflow.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/ContributionWorkflow.tsx:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/ContributionWorkflow.tsx",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/src/components/DeepExplanationCard.tsx",
+      "type": "file",
+      "name": "frontend/src/components/DeepExplanationCard.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/DeepExplanationCard.tsx:handleCopy",
+      "type": "function",
+      "name": "handleCopy",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/DeepExplanationCard.tsx",
+        "lineno": 42
+      }
+    },
+    {
+      "id": "file:frontend/src/components/DirectoryExplorer.tsx",
+      "type": "file",
+      "name": "frontend/src/components/DirectoryExplorer.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/DirectoryExplorer.tsx:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/DirectoryExplorer.tsx",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/src/components/ErrorState.tsx",
+      "type": "file",
+      "name": "frontend/src/components/ErrorState.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/ErrorState.tsx:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/ErrorState.tsx",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/src/components/EvidenceBadge.tsx",
+      "type": "file",
+      "name": "frontend/src/components/EvidenceBadge.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/EvidenceBadge.tsx:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/EvidenceBadge.tsx",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/src/components/ExecutionPlansSection.tsx",
+      "type": "file",
+      "name": "frontend/src/components/ExecutionPlansSection.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/ExecutionPlansSection.tsx:toggleStep",
+      "type": "function",
+      "name": "toggleStep",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/ExecutionPlansSection.tsx",
+        "lineno": 42
+      }
+    },
+    {
+      "id": "func:frontend/src/components/ExecutionPlansSection.tsx:copyCommand",
+      "type": "function",
+      "name": "copyCommand",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/ExecutionPlansSection.tsx",
+        "lineno": 49
+      }
+    },
+    {
+      "id": "func:frontend/src/components/ExecutionPlansSection.tsx:getCategoryIcon",
+      "type": "function",
+      "name": "getCategoryIcon",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/ExecutionPlansSection.tsx",
+        "lineno": 61
+      }
+    },
+    {
+      "id": "func:frontend/src/components/ExecutionPlansSection.tsx:getDifficultyBadge",
+      "type": "function",
+      "name": "getDifficultyBadge",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/ExecutionPlansSection.tsx",
+        "lineno": 69
+      }
+    },
+    {
+      "id": "file:frontend/src/components/FirstContribution.tsx",
+      "type": "file",
+      "name": "frontend/src/components/FirstContribution.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/FirstContribution.tsx:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/FirstContribution.tsx",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/src/components/IssueRecommendations.tsx",
+      "type": "file",
+      "name": "frontend/src/components/IssueRecommendations.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/IssueRecommendations.tsx:getDifficultyConfig",
+      "type": "function",
+      "name": "getDifficultyConfig",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/IssueRecommendations.tsx",
+        "lineno": 48
+      }
+    },
+    {
+      "id": "file:frontend/src/components/Prerequisites.tsx",
+      "type": "file",
+      "name": "frontend/src/components/Prerequisites.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/Prerequisites.tsx:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/Prerequisites.tsx",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/src/components/ProjectSummary.tsx",
+      "type": "file",
+      "name": "frontend/src/components/ProjectSummary.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/ProjectSummary.tsx:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/ProjectSummary.tsx",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/src/components/RepositoryHeader.tsx",
+      "type": "file",
+      "name": "frontend/src/components/RepositoryHeader.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/RepositoryHeader.tsx:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/RepositoryHeader.tsx",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/src/components/RunInstructions.tsx",
+      "type": "file",
+      "name": "frontend/src/components/RunInstructions.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/RunInstructions.tsx:copyToClipboard",
+      "type": "function",
+      "name": "copyToClipboard",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/RunInstructions.tsx",
+        "lineno": 15
+      }
+    },
+    {
+      "id": "file:frontend/src/components/SetupGuide.tsx",
+      "type": "file",
+      "name": "frontend/src/components/SetupGuide.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/SetupGuide.tsx:copyToClipboard",
+      "type": "function",
+      "name": "copyToClipboard",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/SetupGuide.tsx",
+        "lineno": 15
+      }
+    },
+    {
+      "id": "file:frontend/src/components/ThemeToggle.tsx",
+      "type": "file",
+      "name": "frontend/src/components/ThemeToggle.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/ThemeToggle.tsx:toggleTheme",
+      "type": "function",
+      "name": "toggleTheme",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/ThemeToggle.tsx",
+        "lineno": 19
+      }
+    },
+    {
+      "id": "file:frontend/src/components/WarningPanel.tsx",
+      "type": "file",
+      "name": "frontend/src/components/WarningPanel.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/WarningPanel.tsx:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/WarningPanel.tsx",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/src/components/WhatMakesDiffSection.tsx",
+      "type": "file",
+      "name": "frontend/src/components/WhatMakesDiffSection.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/components/WhatMakesDiffSection.tsx:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/components/WhatMakesDiffSection.tsx",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/src/hooks/useAnalysis.ts",
+      "type": "file",
+      "name": "frontend/src/hooks/useAnalysis.ts",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/hooks/useAnalysis.ts:useAnalysis",
+      "type": "function",
+      "name": "useAnalysis",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/hooks/useAnalysis.ts",
+        "lineno": 18
+      }
+    },
+    {
+      "id": "file:frontend/src/main.tsx",
+      "type": "file",
+      "name": "frontend/src/main.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/main.tsx:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/main.tsx",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/src/pages/GuideView.tsx",
+      "type": "file",
+      "name": "frontend/src/pages/GuideView.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/pages/GuideView.tsx:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/pages/GuideView.tsx",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/src/pages/LandingPage.tsx",
+      "type": "file",
+      "name": "frontend/src/pages/LandingPage.tsx",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/pages/LandingPage.tsx:handleInputChange",
+      "type": "function",
+      "name": "handleInputChange",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/pages/LandingPage.tsx",
+        "lineno": 35
+      }
+    },
+    {
+      "id": "func:frontend/src/pages/LandingPage.tsx:handleSubmit",
+      "type": "function",
+      "name": "handleSubmit",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/pages/LandingPage.tsx",
+        "lineno": 41
+      }
+    },
+    {
+      "id": "func:frontend/src/pages/LandingPage.tsx:handleDemoSelect",
+      "type": "function",
+      "name": "handleDemoSelect",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/pages/LandingPage.tsx",
+        "lineno": 48
+      }
+    },
+    {
+      "id": "file:frontend/src/services/api.ts",
+      "type": "file",
+      "name": "frontend/src/services/api.ts",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/services/api.ts:checkHealth",
+      "type": "function",
+      "name": "checkHealth",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/services/api.ts",
+        "lineno": 11
+      }
+    },
+    {
+      "id": "func:frontend/src/services/api.ts:analyzeRepositorySync",
+      "type": "function",
+      "name": "analyzeRepositorySync",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/services/api.ts",
+        "lineno": 19
+      }
+    },
+    {
+      "id": "func:frontend/src/services/api.ts:analyzeRepositoryStream",
+      "type": "function",
+      "name": "analyzeRepositoryStream",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/services/api.ts",
+        "lineno": 34
+      }
+    },
+    {
+      "id": "file:frontend/src/tests/validation.test.ts",
+      "type": "file",
+      "name": "frontend/src/tests/validation.test.ts",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/tests/validation.test.ts:validateGitHubUrl",
+      "type": "function",
+      "name": "validateGitHubUrl",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/tests/validation.test.ts",
+        "lineno": 3
+      }
+    },
+    {
+      "id": "file:frontend/src/types/guide.ts",
+      "type": "file",
+      "name": "frontend/src/types/guide.ts",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/src/types/guide.ts:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/src/types/guide.ts",
+        "lineno": 1
+      }
+    },
+    {
+      "id": "file:frontend/vite.config.ts",
+      "type": "file",
+      "name": "frontend/vite.config.ts",
+      "source_system": "javascript"
+    },
+    {
+      "id": "func:frontend/vite.config.ts:<module>",
+      "type": "function",
+      "name": "<module>",
+      "source_system": "javascript",
+      "metadata": {
+        "file": "frontend/vite.config.ts",
+        "lineno": 1
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "func:backend/app/analyzer/configuration.py:analyze",
+      "target": "file:backend/app/analyzer/configuration.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/configuration.py:9"
+    },
+    {
+      "source": "func:backend/app/analyzer/configuration.py:_extract_env_vars",
+      "target": "file:backend/app/analyzer/configuration.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/configuration.py:46"
+    },
+    {
+      "source": "func:backend/app/analyzer/configuration.py:_extract_ci_commands",
+      "target": "file:backend/app/analyzer/configuration.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/configuration.py:58"
+    },
+    {
+      "source": "func:backend/app/analyzer/configuration.py:_extract_make_targets",
+      "target": "file:backend/app/analyzer/configuration.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/configuration.py:69"
+    },
+    {
+      "source": "func:backend/app/analyzer/dependencies.py:parse_package_json",
+      "target": "file:backend/app/analyzer/dependencies.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/dependencies.py:21"
+    },
+    {
+      "source": "func:backend/app/analyzer/dependencies.py:parse_requirements_txt",
+      "target": "file:backend/app/analyzer/dependencies.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/dependencies.py:87"
+    },
+    {
+      "source": "func:backend/app/analyzer/dependencies.py:parse_pyproject_toml",
+      "target": "file:backend/app/analyzer/dependencies.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/dependencies.py:109"
+    },
+    {
+      "source": "func:backend/app/analyzer/dependencies.py:parse_cargo_toml",
+      "target": "file:backend/app/analyzer/dependencies.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/dependencies.py:173"
+    },
+    {
+      "source": "func:backend/app/analyzer/dependencies.py:parse_go_mod",
+      "target": "file:backend/app/analyzer/dependencies.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/dependencies.py:204"
+    },
+    {
+      "source": "func:backend/app/analyzer/dependencies.py:parse_pom_xml",
+      "target": "file:backend/app/analyzer/dependencies.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/dependencies.py:238"
+    },
+    {
+      "source": "func:backend/app/analyzer/dependencies.py:parse_gemfile",
+      "target": "file:backend/app/analyzer/dependencies.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/dependencies.py:265"
+    },
+    {
+      "source": "func:backend/app/analyzer/dependencies.py:parse_composer_json",
+      "target": "file:backend/app/analyzer/dependencies.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/dependencies.py:286"
+    },
+    {
+      "source": "func:backend/app/analyzer/dependencies.py:analyze",
+      "target": "file:backend/app/analyzer/dependencies.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/dependencies.py:313"
+    },
+    {
+      "source": "func:backend/app/analyzer/issues.py:score_issue",
+      "target": "file:backend/app/analyzer/issues.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/issues.py:39"
+    },
+    {
+      "source": "func:backend/app/analyzer/issues.py:rank_issues",
+      "target": "file:backend/app/analyzer/issues.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/issues.py:95"
+    },
+    {
+      "source": "func:backend/app/analyzer/repository.py:__init__",
+      "target": "file:backend/app/analyzer/repository.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/repository.py:18"
+    },
+    {
+      "source": "func:backend/app/analyzer/repository.py:analyze_structure",
+      "target": "file:backend/app/analyzer/repository.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/repository.py:24"
+    },
+    {
+      "source": "func:backend/app/analyzer/repository.py:analyze_dependencies",
+      "target": "file:backend/app/analyzer/repository.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/repository.py:27"
+    },
+    {
+      "source": "func:backend/app/analyzer/repository.py:analyze_configuration",
+      "target": "file:backend/app/analyzer/repository.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/repository.py:30"
+    },
+    {
+      "source": "func:backend/app/analyzer/repository.py:rank_issues",
+      "target": "file:backend/app/analyzer/repository.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/repository.py:33"
+    },
+    {
+      "source": "func:backend/app/analyzer/structure.py:__init__",
+      "target": "file:backend/app/analyzer/structure.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/structure.py:71"
+    },
+    {
+      "source": "func:backend/app/analyzer/structure.py:analyze",
+      "target": "file:backend/app/analyzer/structure.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/structure.py:74"
+    },
+    {
+      "source": "func:backend/app/analyzer/__init__.py:<module>",
+      "target": "file:backend/app/analyzer/__init__.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/analyzer/__init__.py:1"
+    },
+    {
+      "source": "func:backend/app/api/dependencies.py:get_cache",
+      "target": "file:backend/app/api/dependencies.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/api/dependencies.py:17"
+    },
+    {
+      "source": "func:backend/app/api/dependencies.py:get_github_client",
+      "target": "file:backend/app/api/dependencies.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/api/dependencies.py:28"
+    },
+    {
+      "source": "func:backend/app/api/dependencies.py:get_analyzer",
+      "target": "file:backend/app/api/dependencies.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/api/dependencies.py:36"
+    },
+    {
+      "source": "func:backend/app/api/dependencies.py:get_llm_provider",
+      "target": "file:backend/app/api/dependencies.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/api/dependencies.py:41"
+    },
+    {
+      "source": "func:backend/app/api/dependencies.py:get_active_analyses_map",
+      "target": "file:backend/app/api/dependencies.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/api/dependencies.py:62"
+    },
+    {
+      "source": "func:backend/app/api/routes.py:health_check",
+      "target": "file:backend/app/api/routes.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/api/routes.py:43"
+    },
+    {
+      "source": "func:backend/app/api/routes.py:get_repository_status",
+      "target": "file:backend/app/api/routes.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/api/routes.py:60"
+    },
+    {
+      "source": "func:backend/app/api/routes.py:analyze_repository_sync",
+      "target": "file:backend/app/api/routes.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/api/routes.py:76"
+    },
+    {
+      "source": "func:backend/app/api/routes.py:analyze_repository_stream",
+      "target": "file:backend/app/api/routes.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/api/routes.py:168"
+    },
+    {
+      "source": "func:backend/app/api/routes.py:event_generator",
+      "target": "file:backend/app/api/routes.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/api/routes.py:184"
+    },
+    {
+      "source": "func:backend/app/api/routes.py:progress_callback",
+      "target": "file:backend/app/api/routes.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/api/routes.py:238"
+    },
+    {
+      "source": "func:backend/app/api/routes.py:run_context_and_generation",
+      "target": "file:backend/app/api/routes.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/api/routes.py:245"
+    },
+    {
+      "source": "func:backend/app/api/routes.py:sse_stream",
+      "target": "file:backend/app/api/routes.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/api/routes.py:335"
+    },
+    {
+      "source": "func:backend/app/api/__init__.py:<module>",
+      "target": "file:backend/app/api/__init__.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/api/__init__.py:1"
+    },
+    {
+      "source": "func:backend/app/cache/service.py:get",
+      "target": "file:backend/app/cache/service.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/cache/service.py:14"
+    },
+    {
+      "source": "func:backend/app/cache/service.py:set",
+      "target": "file:backend/app/cache/service.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/cache/service.py:18"
+    },
+    {
+      "source": "func:backend/app/cache/service.py:delete",
+      "target": "file:backend/app/cache/service.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/cache/service.py:22"
+    },
+    {
+      "source": "func:backend/app/cache/service.py:__init__",
+      "target": "file:backend/app/cache/service.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/cache/service.py:29"
+    },
+    {
+      "source": "func:backend/app/cache/service.py:get",
+      "target": "file:backend/app/cache/service.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/cache/service.py:32"
+    },
+    {
+      "source": "func:backend/app/cache/service.py:set",
+      "target": "file:backend/app/cache/service.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/cache/service.py:41"
+    },
+    {
+      "source": "func:backend/app/cache/service.py:delete",
+      "target": "file:backend/app/cache/service.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/cache/service.py:44"
+    },
+    {
+      "source": "func:backend/app/cache/service.py:__init__",
+      "target": "file:backend/app/cache/service.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/cache/service.py:51"
+    },
+    {
+      "source": "func:backend/app/cache/service.py:_get_client",
+      "target": "file:backend/app/cache/service.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/cache/service.py:55"
+    },
+    {
+      "source": "func:backend/app/cache/service.py:get",
+      "target": "file:backend/app/cache/service.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/cache/service.py:61"
+    },
+    {
+      "source": "func:backend/app/cache/service.py:set",
+      "target": "file:backend/app/cache/service.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/cache/service.py:71"
+    },
+    {
+      "source": "func:backend/app/cache/service.py:delete",
+      "target": "file:backend/app/cache/service.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/cache/service.py:78"
+    },
+    {
+      "source": "func:backend/app/cache/service.py:build_cache_key",
+      "target": "file:backend/app/cache/service.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/cache/service.py:86"
+    },
+    {
+      "source": "func:backend/app/cache/__init__.py:<module>",
+      "target": "file:backend/app/cache/__init__.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/cache/__init__.py:1"
+    },
+    {
+      "source": "func:backend/app/config.py:assemble_cors_origins",
+      "target": "file:backend/app/config.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/config.py:20"
+    },
+    {
+      "source": "func:backend/app/config.py:get_settings",
+      "target": "file:backend/app/config.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/config.py:76"
+    },
+    {
+      "source": "func:backend/app/context/builder.py:__init__",
+      "target": "file:backend/app/context/builder.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/context/builder.py:19"
+    },
+    {
+      "source": "func:backend/app/context/builder.py:build",
+      "target": "file:backend/app/context/builder.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/context/builder.py:33"
+    },
+    {
+      "source": "func:backend/app/context/builder.py:notify",
+      "target": "file:backend/app/context/builder.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/context/builder.py:41"
+    },
+    {
+      "source": "func:backend/app/context/sanitizer.py:is_sensitive_file",
+      "target": "file:backend/app/context/sanitizer.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/context/sanitizer.py:35"
+    },
+    {
+      "source": "func:backend/app/context/sanitizer.py:sanitize_content",
+      "target": "file:backend/app/context/sanitizer.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/context/sanitizer.py:43"
+    },
+    {
+      "source": "func:backend/app/context/selector.py:__init__",
+      "target": "file:backend/app/context/selector.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/context/selector.py:7"
+    },
+    {
+      "source": "func:backend/app/context/selector.py:truncate_text",
+      "target": "file:backend/app/context/selector.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/context/selector.py:11"
+    },
+    {
+      "source": "func:backend/app/context/selector.py:prepare_readme",
+      "target": "file:backend/app/context/selector.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/context/selector.py:24"
+    },
+    {
+      "source": "func:backend/app/context/selector.py:prepare_contributing",
+      "target": "file:backend/app/context/selector.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/context/selector.py:27"
+    },
+    {
+      "source": "func:backend/app/context/selector.py:prepare_raw_files",
+      "target": "file:backend/app/context/selector.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/context/selector.py:30"
+    },
+    {
+      "source": "func:backend/app/context/__init__.py:<module>",
+      "target": "file:backend/app/context/__init__.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/context/__init__.py:1"
+    },
+    {
+      "source": "func:backend/app/db/database.py:get_engine",
+      "target": "file:backend/app/db/database.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/db/database.py:13"
+    },
+    {
+      "source": "func:backend/app/db/database.py:get_session_maker",
+      "target": "file:backend/app/db/database.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/db/database.py:25"
+    },
+    {
+      "source": "func:backend/app/db/database.py:init_db",
+      "target": "file:backend/app/db/database.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/db/database.py:37"
+    },
+    {
+      "source": "func:backend/app/db/database.py:get_db_session",
+      "target": "file:backend/app/db/database.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/db/database.py:53"
+    },
+    {
+      "source": "func:backend/app/db/models.py:__repr__",
+      "target": "file:backend/app/db/models.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/db/models.py:20"
+    },
+    {
+      "source": "func:backend/app/db/__init__.py:<module>",
+      "target": "file:backend/app/db/__init__.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/db/__init__.py:1"
+    },
+    {
+      "source": "func:backend/app/github/client.py:__init__",
+      "target": "file:backend/app/github/client.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/client.py:14"
+    },
+    {
+      "source": "func:backend/app/github/client.py:__init__",
+      "target": "file:backend/app/github/client.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/client.py:26"
+    },
+    {
+      "source": "func:backend/app/github/client.py:__init__",
+      "target": "file:backend/app/github/client.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/client.py:41"
+    },
+    {
+      "source": "func:backend/app/github/client.py:close",
+      "target": "file:backend/app/github/client.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/client.py:62"
+    },
+    {
+      "source": "func:backend/app/github/client.py:_handle_response",
+      "target": "file:backend/app/github/client.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/client.py:65"
+    },
+    {
+      "source": "func:backend/app/github/client.py:get_repository",
+      "target": "file:backend/app/github/client.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/client.py:87"
+    },
+    {
+      "source": "func:backend/app/github/client.py:get_readme",
+      "target": "file:backend/app/github/client.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/client.py:129"
+    },
+    {
+      "source": "func:backend/app/github/client.py:get_file_content",
+      "target": "file:backend/app/github/client.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/client.py:147"
+    },
+    {
+      "source": "func:backend/app/github/client.py:get_tree",
+      "target": "file:backend/app/github/client.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/client.py:168"
+    },
+    {
+      "source": "func:backend/app/github/client.py:get_issues",
+      "target": "file:backend/app/github/client.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/client.py:198"
+    },
+    {
+      "source": "func:backend/app/github/files.py:extract_readme",
+      "target": "file:backend/app/github/files.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/files.py:55"
+    },
+    {
+      "source": "func:backend/app/github/files.py:extract_contributing",
+      "target": "file:backend/app/github/files.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/files.py:69"
+    },
+    {
+      "source": "func:backend/app/github/files.py:extract_priority_files",
+      "target": "file:backend/app/github/files.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/files.py:78"
+    },
+    {
+      "source": "func:backend/app/github/files.py:fetch_single",
+      "target": "file:backend/app/github/files.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/files.py:104"
+    },
+    {
+      "source": "func:backend/app/github/issues.py:extract_issues",
+      "target": "file:backend/app/github/issues.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/issues.py:6"
+    },
+    {
+      "source": "func:backend/app/github/repository.py:parse_and_validate_github_url",
+      "target": "file:backend/app/github/repository.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/repository.py:19"
+    },
+    {
+      "source": "func:backend/app/github/__init__.py:<module>",
+      "target": "file:backend/app/github/__init__.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/github/__init__.py:1"
+    },
+    {
+      "source": "func:backend/app/guide/generator.py:__init__",
+      "target": "file:backend/app/guide/generator.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/guide/generator.py:18"
+    },
+    {
+      "source": "func:backend/app/guide/generator.py:generate_guide",
+      "target": "file:backend/app/guide/generator.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/guide/generator.py:22"
+    },
+    {
+      "source": "func:backend/app/guide/verifier.py:verify_guide",
+      "target": "file:backend/app/guide/verifier.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/guide/verifier.py:17"
+    },
+    {
+      "source": "func:backend/app/guide/__init__.py:<module>",
+      "target": "file:backend/app/guide/__init__.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/guide/__init__.py:1"
+    },
+    {
+      "source": "func:backend/app/llm/base.py:generate",
+      "target": "file:backend/app/llm/base.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/base.py:23"
+    },
+    {
+      "source": "func:backend/app/llm/base.py:health_check",
+      "target": "file:backend/app/llm/base.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/base.py:31"
+    },
+    {
+      "source": "func:backend/app/llm/deterministic.py:health_check",
+      "target": "file:backend/app/llm/deterministic.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/deterministic.py:17"
+    },
+    {
+      "source": "func:backend/app/llm/deterministic.py:generate",
+      "target": "file:backend/app/llm/deterministic.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/deterministic.py:20"
+    },
+    {
+      "source": "func:backend/app/llm/ollama.py:__init__",
+      "target": "file:backend/app/llm/ollama.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/ollama.py:11"
+    },
+    {
+      "source": "func:backend/app/llm/ollama.py:generate",
+      "target": "file:backend/app/llm/ollama.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/ollama.py:23"
+    },
+    {
+      "source": "func:backend/app/llm/ollama.py:health_check",
+      "target": "file:backend/app/llm/ollama.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/ollama.py:59"
+    },
+    {
+      "source": "func:backend/app/llm/parser.py:__init__",
+      "target": "file:backend/app/llm/parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/parser.py:14"
+    },
+    {
+      "source": "func:backend/app/llm/parser.py:extract_json_from_text",
+      "target": "file:backend/app/llm/parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/parser.py:19"
+    },
+    {
+      "source": "func:backend/app/llm/parser.py:parse_guide_response",
+      "target": "file:backend/app/llm/parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/parser.py:60"
+    },
+    {
+      "source": "func:backend/app/llm/parser.py:parse_guide_response",
+      "target": "table:target",
+      "type": "static_sql_string",
+      "confidence": 0.96,
+      "evidence": "Update target files, add missing type hints or docstrings, or fix minor inconsis",
+      "metadata": {
+        "file": "backend/app/llm/parser.py",
+        "lineno": 60
+      }
+    },
+    {
+      "source": "func:backend/app/llm/parser.py:parse_guide_response",
+      "target": "table:red",
+      "type": "static_sql_string",
+      "confidence": 0.96,
+      "evidence": "Update target files, add missing type hints or docstrings, or fix minor inconsis",
+      "metadata": {
+        "file": "backend/app/llm/parser.py",
+        "lineno": 60
+      }
+    },
+    {
+      "source": "func:backend/app/llm/parser.py:parse_guide_response",
+      "target": "table:git",
+      "type": "static_sql_string",
+      "confidence": 0.96,
+      "evidence": "Update target files, add missing type hints or docstrings, or fix minor inconsis",
+      "metadata": {
+        "file": "backend/app/llm/parser.py",
+        "lineno": 60
+      }
+    },
+    {
+      "source": "func:backend/app/llm/prompts.py:build_user_prompt",
+      "target": "file:backend/app/llm/prompts.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/prompts.py:164"
+    },
+    {
+      "source": "func:backend/app/llm/vllm.py:__init__",
+      "target": "file:backend/app/llm/vllm.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/vllm.py:11"
+    },
+    {
+      "source": "func:backend/app/llm/vllm.py:generate",
+      "target": "file:backend/app/llm/vllm.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/vllm.py:23"
+    },
+    {
+      "source": "func:backend/app/llm/vllm.py:health_check",
+      "target": "file:backend/app/llm/vllm.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/vllm.py:61"
+    },
+    {
+      "source": "func:backend/app/llm/__init__.py:<module>",
+      "target": "file:backend/app/llm/__init__.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/llm/__init__.py:1"
+    },
+    {
+      "source": "func:backend/app/main.py:lifespan",
+      "target": "file:backend/app/main.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/main.py:30"
+    },
+    {
+      "source": "func:backend/app/main.py:create_app",
+      "target": "file:backend/app/main.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/main.py:43"
+    },
+    {
+      "source": "func:backend/app/main.py:global_exception_handler",
+      "target": "file:backend/app/main.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/main.py:69"
+    },
+    {
+      "source": "func:backend/app/models/guide.py:<module>",
+      "target": "file:backend/app/models/guide.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/models/guide.py:1"
+    },
+    {
+      "source": "func:backend/app/models/issue.py:<module>",
+      "target": "file:backend/app/models/issue.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/models/issue.py:1"
+    },
+    {
+      "source": "func:backend/app/models/repository.py:<module>",
+      "target": "file:backend/app/models/repository.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/models/repository.py:1"
+    },
+    {
+      "source": "func:backend/app/models/__init__.py:<module>",
+      "target": "file:backend/app/models/__init__.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/models/__init__.py:1"
+    },
+    {
+      "source": "func:backend/app/__init__.py:<module>",
+      "target": "file:backend/app/__init__.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/app/__init__.py:1"
+    },
+    {
+      "source": "func:backend/tests/test_api.py:generate",
+      "target": "file:backend/tests/test_api.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_api.py:11"
+    },
+    {
+      "source": "func:backend/tests/test_api.py:health_check",
+      "target": "file:backend/tests/test_api.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_api.py:39"
+    },
+    {
+      "source": "func:backend/tests/test_api.py:client",
+      "target": "file:backend/tests/test_api.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_api.py:44"
+    },
+    {
+      "source": "func:backend/tests/test_api.py:test_health_endpoint",
+      "target": "file:backend/tests/test_api.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_api.py:48"
+    },
+    {
+      "source": "func:backend/tests/test_api.py:test_analyze_rejects_invalid_url",
+      "target": "file:backend/tests/test_api.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_api.py:56"
+    },
+    {
+      "source": "func:backend/tests/test_api.py:test_analyze_sync_success",
+      "target": "file:backend/tests/test_api.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_api.py:64"
+    },
+    {
+      "source": "func:backend/tests/test_context_sanitizer.py:test_sensitive_file_detection",
+      "target": "file:backend/tests/test_context_sanitizer.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_context_sanitizer.py:4"
+    },
+    {
+      "source": "func:backend/tests/test_context_sanitizer.py:test_secret_content_sanitization",
+      "target": "file:backend/tests/test_context_sanitizer.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_context_sanitizer.py:16"
+    },
+    {
+      "source": "func:backend/tests/test_dependency_analyzer.py:test_parse_package_json",
+      "target": "file:backend/tests/test_dependency_analyzer.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_dependency_analyzer.py:12"
+    },
+    {
+      "source": "func:backend/tests/test_dependency_analyzer.py:test_parse_requirements_txt",
+      "target": "file:backend/tests/test_dependency_analyzer.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_dependency_analyzer.py:38"
+    },
+    {
+      "source": "func:backend/tests/test_dependency_analyzer.py:test_parse_cargo_toml",
+      "target": "file:backend/tests/test_dependency_analyzer.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_dependency_analyzer.py:54"
+    },
+    {
+      "source": "func:backend/tests/test_dependency_analyzer.py:test_parse_go_mod",
+      "target": "file:backend/tests/test_dependency_analyzer.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_dependency_analyzer.py:73"
+    },
+    {
+      "source": "func:backend/tests/test_dependency_analyzer.py:test_parse_pom_xml",
+      "target": "file:backend/tests/test_dependency_analyzer.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_dependency_analyzer.py:91"
+    },
+    {
+      "source": "func:backend/tests/test_dependency_analyzer.py:test_dependency_analyzer_priority",
+      "target": "file:backend/tests/test_dependency_analyzer.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_dependency_analyzer.py:108"
+    },
+    {
+      "source": "func:backend/tests/test_issue_ranking.py:test_issue_ranking_scores_beginner_higher_than_architectural",
+      "target": "file:backend/tests/test_issue_ranking.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_issue_ranking.py:5"
+    },
+    {
+      "source": "func:backend/tests/test_llm_parser.py:test_extract_json_from_markdown_block",
+      "target": "file:backend/tests/test_llm_parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_llm_parser.py:9"
+    },
+    {
+      "source": "func:backend/tests/test_llm_parser.py:test_extract_json_invalid",
+      "target": "file:backend/tests/test_llm_parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_llm_parser.py:38"
+    },
+    {
+      "source": "func:backend/tests/test_llm_parser.py:test_evidence_verifier_removes_hallucinated_issue",
+      "target": "file:backend/tests/test_llm_parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_llm_parser.py:43"
+    },
+    {
+      "source": "func:backend/tests/test_llm_parser.py:test_deep_explanation_and_execution_plans_auto_synthesized",
+      "target": "file:backend/tests/test_llm_parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_llm_parser.py:104"
+    },
+    {
+      "source": "func:backend/tests/test_llm_parser.py:test_deterministic_provider_generates_deep_plans",
+      "target": "file:backend/tests/test_llm_parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_llm_parser.py:127"
+    },
+    {
+      "source": "func:backend/tests/test_structure_analyzer.py:test_structure_analyzer_filters_noise_and_detects_dirs",
+      "target": "file:backend/tests/test_structure_analyzer.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_structure_analyzer.py:5"
+    },
+    {
+      "source": "func:backend/tests/test_structure_analyzer.py:test_structure_analyzer_truncation",
+      "target": "file:backend/tests/test_structure_analyzer.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_structure_analyzer.py:26"
+    },
+    {
+      "source": "func:backend/tests/test_url_parser.py:test_valid_github_url",
+      "target": "file:backend/tests/test_url_parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_url_parser.py:5"
+    },
+    {
+      "source": "func:backend/tests/test_url_parser.py:test_valid_github_url_trailing_slash",
+      "target": "file:backend/tests/test_url_parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_url_parser.py:11"
+    },
+    {
+      "source": "func:backend/tests/test_url_parser.py:test_valid_github_url_with_git_suffix",
+      "target": "file:backend/tests/test_url_parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_url_parser.py:17"
+    },
+    {
+      "source": "func:backend/tests/test_url_parser.py:test_reject_invalid_domain",
+      "target": "file:backend/tests/test_url_parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_url_parser.py:23"
+    },
+    {
+      "source": "func:backend/tests/test_url_parser.py:test_reject_user_profile",
+      "target": "file:backend/tests/test_url_parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_url_parser.py:28"
+    },
+    {
+      "source": "func:backend/tests/test_url_parser.py:test_reject_subpath",
+      "target": "file:backend/tests/test_url_parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_url_parser.py:33"
+    },
+    {
+      "source": "func:backend/tests/test_url_parser.py:test_reject_reserved_route",
+      "target": "file:backend/tests/test_url_parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_url_parser.py:38"
+    },
+    {
+      "source": "func:backend/tests/test_url_parser.py:test_reject_empty_or_malformed",
+      "target": "file:backend/tests/test_url_parser.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/test_url_parser.py:43"
+    },
+    {
+      "source": "func:backend/tests/__init__.py:<module>",
+      "target": "file:backend/tests/__init__.py",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in backend/tests/__init__.py:1"
+    },
+    {
+      "source": "func:frontend/src/App.tsx:handleStartAnalysis",
+      "target": "file:frontend/src/App.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/App.tsx:24"
+    },
+    {
+      "source": "func:frontend/src/App.tsx:handleRetry",
+      "target": "file:frontend/src/App.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/App.tsx:29"
+    },
+    {
+      "source": "func:frontend/src/components/AnalysisProgress.tsx:<module>",
+      "target": "file:frontend/src/components/AnalysisProgress.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/AnalysisProgress.tsx:1"
+    },
+    {
+      "source": "func:frontend/src/components/ContributionWorkflow.tsx:<module>",
+      "target": "file:frontend/src/components/ContributionWorkflow.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/ContributionWorkflow.tsx:1"
+    },
+    {
+      "source": "func:frontend/src/components/DeepExplanationCard.tsx:handleCopy",
+      "target": "file:frontend/src/components/DeepExplanationCard.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/DeepExplanationCard.tsx:42"
+    },
+    {
+      "source": "func:frontend/src/components/DirectoryExplorer.tsx:<module>",
+      "target": "file:frontend/src/components/DirectoryExplorer.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/DirectoryExplorer.tsx:1"
+    },
+    {
+      "source": "func:frontend/src/components/ErrorState.tsx:<module>",
+      "target": "file:frontend/src/components/ErrorState.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/ErrorState.tsx:1"
+    },
+    {
+      "source": "func:frontend/src/components/EvidenceBadge.tsx:<module>",
+      "target": "file:frontend/src/components/EvidenceBadge.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/EvidenceBadge.tsx:1"
+    },
+    {
+      "source": "func:frontend/src/components/ExecutionPlansSection.tsx:toggleStep",
+      "target": "file:frontend/src/components/ExecutionPlansSection.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/ExecutionPlansSection.tsx:42"
+    },
+    {
+      "source": "func:frontend/src/components/ExecutionPlansSection.tsx:copyCommand",
+      "target": "file:frontend/src/components/ExecutionPlansSection.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/ExecutionPlansSection.tsx:49"
+    },
+    {
+      "source": "func:frontend/src/components/ExecutionPlansSection.tsx:getCategoryIcon",
+      "target": "file:frontend/src/components/ExecutionPlansSection.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/ExecutionPlansSection.tsx:61"
+    },
+    {
+      "source": "func:frontend/src/components/ExecutionPlansSection.tsx:getDifficultyBadge",
+      "target": "file:frontend/src/components/ExecutionPlansSection.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/ExecutionPlansSection.tsx:69"
+    },
+    {
+      "source": "func:frontend/src/components/FirstContribution.tsx:<module>",
+      "target": "file:frontend/src/components/FirstContribution.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/FirstContribution.tsx:1"
+    },
+    {
+      "source": "func:frontend/src/components/IssueRecommendations.tsx:getDifficultyConfig",
+      "target": "file:frontend/src/components/IssueRecommendations.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/IssueRecommendations.tsx:48"
+    },
+    {
+      "source": "func:frontend/src/components/Prerequisites.tsx:<module>",
+      "target": "file:frontend/src/components/Prerequisites.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/Prerequisites.tsx:1"
+    },
+    {
+      "source": "func:frontend/src/components/ProjectSummary.tsx:<module>",
+      "target": "file:frontend/src/components/ProjectSummary.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/ProjectSummary.tsx:1"
+    },
+    {
+      "source": "func:frontend/src/components/RepositoryHeader.tsx:<module>",
+      "target": "file:frontend/src/components/RepositoryHeader.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/RepositoryHeader.tsx:1"
+    },
+    {
+      "source": "func:frontend/src/components/RunInstructions.tsx:copyToClipboard",
+      "target": "file:frontend/src/components/RunInstructions.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/RunInstructions.tsx:15"
+    },
+    {
+      "source": "func:frontend/src/components/SetupGuide.tsx:copyToClipboard",
+      "target": "file:frontend/src/components/SetupGuide.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/SetupGuide.tsx:15"
+    },
+    {
+      "source": "func:frontend/src/components/ThemeToggle.tsx:toggleTheme",
+      "target": "file:frontend/src/components/ThemeToggle.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/ThemeToggle.tsx:19"
+    },
+    {
+      "source": "func:frontend/src/components/WarningPanel.tsx:<module>",
+      "target": "file:frontend/src/components/WarningPanel.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/WarningPanel.tsx:1"
+    },
+    {
+      "source": "func:frontend/src/components/WhatMakesDiffSection.tsx:<module>",
+      "target": "file:frontend/src/components/WhatMakesDiffSection.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/components/WhatMakesDiffSection.tsx:1"
+    },
+    {
+      "source": "func:frontend/src/hooks/useAnalysis.ts:useAnalysis",
+      "target": "file:frontend/src/hooks/useAnalysis.ts",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/hooks/useAnalysis.ts:18"
+    },
+    {
+      "source": "func:frontend/src/main.tsx:<module>",
+      "target": "file:frontend/src/main.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/main.tsx:1"
+    },
+    {
+      "source": "func:frontend/src/pages/GuideView.tsx:<module>",
+      "target": "file:frontend/src/pages/GuideView.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/pages/GuideView.tsx:1"
+    },
+    {
+      "source": "func:frontend/src/pages/LandingPage.tsx:handleInputChange",
+      "target": "file:frontend/src/pages/LandingPage.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/pages/LandingPage.tsx:35"
+    },
+    {
+      "source": "func:frontend/src/pages/LandingPage.tsx:handleSubmit",
+      "target": "file:frontend/src/pages/LandingPage.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/pages/LandingPage.tsx:41"
+    },
+    {
+      "source": "func:frontend/src/pages/LandingPage.tsx:handleDemoSelect",
+      "target": "file:frontend/src/pages/LandingPage.tsx",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/pages/LandingPage.tsx:48"
+    },
+    {
+      "source": "func:frontend/src/services/api.ts:checkHealth",
+      "target": "file:frontend/src/services/api.ts",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/services/api.ts:11"
+    },
+    {
+      "source": "func:frontend/src/services/api.ts:analyzeRepositorySync",
+      "target": "file:frontend/src/services/api.ts",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/services/api.ts:19"
+    },
+    {
+      "source": "func:frontend/src/services/api.ts:analyzeRepositoryStream",
+      "target": "file:frontend/src/services/api.ts",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/services/api.ts:34"
+    },
+    {
+      "source": "func:frontend/src/tests/validation.test.ts:validateGitHubUrl",
+      "target": "file:frontend/src/tests/validation.test.ts",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/tests/validation.test.ts:3"
+    },
+    {
+      "source": "func:frontend/src/types/guide.ts:<module>",
+      "target": "file:frontend/src/types/guide.ts",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/src/types/guide.ts:1"
+    },
+    {
+      "source": "func:frontend/vite.config.ts:<module>",
+      "target": "file:frontend/vite.config.ts",
+      "type": "structural_belongs_to",
+      "confidence": 1,
+      "evidence": "in frontend/vite.config.ts:1"
+    }
+  ],
+  "metrics": {
+    "total_nodes": 247,
+    "total_edges": 182,
+    "code_to_db": {
+      "total_access_calls": 3,
+      "static_sql_count": 3,
+      "orm_call_count": 0,
+      "dynamic_unresolved_count": 0,
+      "dynamic_unresolved_ratio": 0
+    }
+  }
+}

@@ -93,6 +93,41 @@ You MUST return a single valid JSON object matching the following structure:
     "Create a feature branch",
     "Submit a pull request"
   ],
+  "execution_plans": [
+    {
+      "id": "day_one",
+      "title": "30-Minute Fast-Track Contributor",
+      "target_persona": "First-time Contributor / Quick PR",
+      "time_estimate": "~30 mins",
+      "difficulty": "Beginner",
+      "goal": "Bootstrap sandbox, verify tests, and prepare first PR",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Clone repository and cd into folder",
+          "target_files": ["README.md"],
+          "command": "git clone <url> && cd <repo>",
+          "verification": "git status is clean"
+        }
+      ],
+      "key_files": ["src/main.ts"],
+      "tips": ["Keep first PR minimal and scoped"]
+    }
+  ],
+  "deep_architecture": {
+    "pattern": "Layered Asynchronous Architecture",
+    "explanation": "Deep explanation of request lifecycles and component boundaries.",
+    "lifecycle_stages": [
+      {
+        "stage": 1,
+        "name": "Bootstrapping",
+        "description": "Environment parsing and container initialization",
+        "representative_files": ["src/index.ts"]
+      }
+    ],
+    "data_flow_summary": "How data moves across the system",
+    "hotspots_and_gotchas": ["Key architectural caveats or concurrency issues"]
+  },
   "warnings": [
     "Any caveats, incomplete docs, or areas of uncertainty"
   ]
@@ -109,9 +144,9 @@ def build_user_prompt(context: RepositoryContext) -> str:
     struct = context.structure
     cfg = context.configuration
 
-    # Format top ranked issues
+    # Format top ranked issues (top 5 are sufficient for onboarding recommendations)
     top_issues = []
-    for ri in context.ranked_issues[:10]:
+    for ri in context.ranked_issues[:5]:
         top_issues.append({
             "number": ri.issue.number,
             "title": ri.issue.title,
@@ -121,7 +156,7 @@ def build_user_prompt(context: RepositoryContext) -> str:
             "difficulty": ri.difficulty,
             "comments": ri.issue.comments,
             "ranking_reasons": ri.reasons,
-            "body_excerpt": (ri.issue.body or "")[:300],
+            "body_excerpt": (ri.issue.body or "")[:150],
         })
 
     prompt_data = {
@@ -155,7 +190,7 @@ def build_user_prompt(context: RepositoryContext) -> str:
             "total_files": struct.total_files,
             "important_directories": struct.important_directories,
             "likely_entry_points": struct.likely_entry_points,
-            "compact_tree_sample": struct.compact_tree[:3000],
+            "compact_tree_sample": struct.compact_tree[:1500],
         },
         "configuration_analysis": {
             "docker_support": cfg.docker_support,
@@ -164,8 +199,8 @@ def build_user_prompt(context: RepositoryContext) -> str:
             "ci_workflows": cfg.ci_workflows,
             "ci_commands": cfg.ci_commands,
         },
-        "readme_excerpt": (context.readme or "No README file found.")[:8000],
-        "contributing_excerpt": (context.contributing or "No CONTRIBUTING.md found.")[:4000],
+        "readme_excerpt": (context.readme or "No README file found.")[:3500],
+        "contributing_excerpt": (context.contributing or "No CONTRIBUTING.md found.")[:1500],
         "available_open_issues": top_issues,
     }
 

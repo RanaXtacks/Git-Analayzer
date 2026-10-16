@@ -44,8 +44,18 @@ class GuideGenerator:
                 f"Previous output snippet:\n{raw_output[:1000]}\n\n"
                 "Please fix the error and output ONLY the valid JSON object according to the schema."
             )
-            retry_output = await self.llm.generate(SYSTEM_PROMPT, correction_prompt)
-            guide = parse_guide_response(retry_output)
+            try:
+                retry_output = await self.llm.generate(SYSTEM_PROMPT, correction_prompt)
+                guide = parse_guide_response(retry_output)
+            except Exception as retry_err:
+                settings = get_settings()
+                if settings.AUTO_FALLBACK_TO_DETERMINISTIC:
+                    logger.warning(f"Correction retry failed ({retry_err}). Falling back to deterministic extraction.")
+                    fallback = DeterministicProvider()
+                    fallback_out = await fallback.generate(SYSTEM_PROMPT, user_prompt)
+                    guide = parse_guide_response(fallback_out)
+                else:
+                    raise
 
         # Apply strict evidence verification
         verified_guide = self.verifier.verify_guide(guide, context)
