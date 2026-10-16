@@ -6,7 +6,7 @@ from datetime import datetime
 from typing import AsyncGenerator, Dict, Any
 
 from fastapi import APIRouter, Depends, HTTPException, Request, status
-from sse_starlette.sse import EventSourceResponse
+from starlette.responses import StreamingResponse
 
 from app.config import get_settings, Settings
 from app.github.repository import parse_and_validate_github_url
@@ -332,4 +332,14 @@ async def analyze_repository_stream(
                 active_map.pop(dedup_key, None)
             await github_client.close()
 
-    return EventSourceResponse(event_generator())
+    async def sse_stream() -> AsyncGenerator[str, None]:
+        async for item in event_generator():
+            yield f"event: {item['event']}\ndata: {item['data']}\n\n"
+
+    headers = {
+        "Content-Type": "text/event-stream",
+        "Cache-Control": "no-cache",
+        "Connection": "keep-alive",
+        "X-Accel-Buffering": "no",
+    }
+    return StreamingResponse(sse_stream(), headers=headers, media_type="text/event-stream")
