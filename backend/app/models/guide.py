@@ -40,7 +40,6 @@ class FirstContribution(BaseModel):
     evidence: List[Evidence] = Field(default_factory=list)
 
 
-<<<<<<< HEAD
 class ConfidenceBreakdown(BaseModel):
     manifest_score: int = Field(default=80, ge=0, le=100)
     evidence_score: int = Field(default=80, ge=0, le=100)
@@ -48,7 +47,8 @@ class ConfidenceBreakdown(BaseModel):
     doc_score: int = Field(default=80, ge=0, le=100)
     hallucination_penalty: int = Field(default=0)
     reasons: List[str] = Field(default_factory=list)
-=======
+
+
 class ExecutionPlanStep(BaseModel):
     step: int
     action: str
@@ -89,7 +89,7 @@ class CopilotDiffPoint(BaseModel):
     copilot_approach: str
     git_analyzer_advantage: str
     technical_reason: str
->>>>>>> 24723acbc0e4ff7a21789f33c757c4ab3fc12104
+
 
 
 class OnboardingGuide(BaseModel):

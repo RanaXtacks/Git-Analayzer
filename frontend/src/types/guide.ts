@@ -36,7 +36,6 @@ export interface FirstContribution {
   evidence: Evidence[];
 }
 
-<<<<<<< HEAD
 export interface ConfidenceBreakdown {
   manifest_score: number;
   evidence_score: number;
@@ -44,7 +43,8 @@ export interface ConfidenceBreakdown {
   doc_score: number;
   hallucination_penalty: number;
   reasons: string[];
-=======
+}
+
 export interface ExecutionPlanStep {
   step: number;
   action: string;
@@ -85,8 +85,8 @@ export interface CopilotDiffPoint {
   copilot_approach: string;
   git_analyzer_advantage: string;
   technical_reason: string;
->>>>>>> 24723acbc0e4ff7a21789f33c757c4ab3fc12104
 }
+
 
 export interface OnboardingGuide {
   project_summary: string;
