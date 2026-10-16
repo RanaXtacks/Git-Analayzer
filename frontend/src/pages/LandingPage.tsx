@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Compass, Search, Sparkles, Check, ArrowRight, ShieldCheck, Cpu, Database, Github } from 'lucide-react';
+import { Search, Sparkles, Check, ArrowRight, ShieldCheck, Cpu, Database } from 'lucide-react';
 
 interface LandingPageProps {
   onAnalyze: (url: string) => void;

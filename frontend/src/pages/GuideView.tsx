@@ -1,6 +1,6 @@
 import React from 'react';
-import { ArrowLeft, Compass, RotateCcw } from 'lucide-react';
-import { AnalysisResponse } from '../types/guide';
+import { ArrowLeft, RotateCcw } from 'lucide-react';
+import type { AnalysisResponse } from '../types/guide';
 import { RepositoryHeader } from '../components/RepositoryHeader';
 import { ProjectSummary } from '../components/ProjectSummary';
 import { Prerequisites } from '../components/Prerequisites';
