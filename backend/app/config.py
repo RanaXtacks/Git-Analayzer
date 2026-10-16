@@ -4,7 +4,6 @@ from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 import json
 
-
 class Settings(BaseSettings):
     # App Settings
     APP_NAME: str = "Git-Analyzer"
@@ -35,7 +34,7 @@ class Settings(BaseSettings):
     # LLM Settings
     LLM_PROVIDER: str = "ollama"  # "ollama", "vllm", or "deterministic"
     OLLAMA_BASE_URL: str = "http://localhost:11434"
-    OLLAMA_MODEL: str = "qwen3:8b"
+    OLLAMA_MODEL: str = "qwen2.5:7b"
     VLLM_BASE_URL: str = "http://localhost:8000"
     VLLM_MODEL: str = "qwen3:8b"
     VLLM_API_KEY: Optional[str] = None
@@ -73,6 +72,5 @@ class Settings(BaseSettings):
     )
 
 
-@lru_cache()
 def get_settings() -> Settings:
     return Settings()
