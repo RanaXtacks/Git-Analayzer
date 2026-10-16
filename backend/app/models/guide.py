@@ -40,6 +40,48 @@ class FirstContribution(BaseModel):
     evidence: List[Evidence] = Field(default_factory=list)
 
 
+class ExecutionPlanStep(BaseModel):
+    step: int
+    action: str
+    target_files: List[str] = Field(default_factory=list)
+    command: Optional[str] = None
+    verification: str
+
+
+class ExecutionPlan(BaseModel):
+    id: str  # "day_one" | "deep_architecture" | "bug_hunt" | "system_extender"
+    title: str
+    target_persona: str  # "30-Min Fast Track" | "System Architect" | "Bug Hunter" | "Feature Extender"
+    time_estimate: str  # "~30 mins" | "~2-3 hrs" | "~1 hr" | "~1-2 days"
+    difficulty: str  # "Beginner" | "Intermediate" | "Advanced"
+    goal: str
+    steps: List[ExecutionPlanStep] = Field(default_factory=list)
+    key_files: List[str] = Field(default_factory=list)
+    tips: List[str] = Field(default_factory=list)
+
+
+class ArchitectureLifecycleStage(BaseModel):
+    stage: int
+    name: str
+    description: str
+    representative_files: List[str] = Field(default_factory=list)
+
+
+class DeepArchitecture(BaseModel):
+    pattern: str  # e.g. "Layered MVC / Microservices / Clean Architecture"
+    explanation: str
+    lifecycle_stages: List[ArchitectureLifecycleStage] = Field(default_factory=list)
+    data_flow_summary: str
+    hotspots_and_gotchas: List[str] = Field(default_factory=list)
+
+
+class CopilotDiffPoint(BaseModel):
+    feature: str
+    copilot_approach: str
+    git_analyzer_advantage: str
+    technical_reason: str
+
+
 class OnboardingGuide(BaseModel):
     project_summary: str
     prerequisites: List[str] = Field(default_factory=list)
@@ -50,4 +92,7 @@ class OnboardingGuide(BaseModel):
     recommended_issues: List[RecommendedIssue] = Field(default_factory=list)
     first_contribution: FirstContribution
     contribution_workflow: List[str] = Field(default_factory=list)
+    execution_plans: List[ExecutionPlan] = Field(default_factory=list)
+    deep_architecture: Optional[DeepArchitecture] = None
+    differentiation_matrix: List[CopilotDiffPoint] = Field(default_factory=list)
     warnings: List[str] = Field(default_factory=list)

@@ -93,6 +93,41 @@ You MUST return a single valid JSON object matching the following structure:
     "Create a feature branch",
     "Submit a pull request"
   ],
+  "execution_plans": [
+    {
+      "id": "day_one",
+      "title": "30-Minute Fast-Track Contributor",
+      "target_persona": "First-time Contributor / Quick PR",
+      "time_estimate": "~30 mins",
+      "difficulty": "Beginner",
+      "goal": "Bootstrap sandbox, verify tests, and prepare first PR",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Clone repository and cd into folder",
+          "target_files": ["README.md"],
+          "command": "git clone <url> && cd <repo>",
+          "verification": "git status is clean"
+        }
+      ],
+      "key_files": ["src/main.ts"],
+      "tips": ["Keep first PR minimal and scoped"]
+    }
+  ],
+  "deep_architecture": {
+    "pattern": "Layered Asynchronous Architecture",
+    "explanation": "Deep explanation of request lifecycles and component boundaries.",
+    "lifecycle_stages": [
+      {
+        "stage": 1,
+        "name": "Bootstrapping",
+        "description": "Environment parsing and container initialization",
+        "representative_files": ["src/index.ts"]
+      }
+    ],
+    "data_flow_summary": "How data moves across the system",
+    "hotspots_and_gotchas": ["Key architectural caveats or concurrency issues"]
+  },
   "warnings": [
     "Any caveats, incomplete docs, or areas of uncertainty"
   ]

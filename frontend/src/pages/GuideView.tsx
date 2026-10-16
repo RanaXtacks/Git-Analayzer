@@ -1,5 +1,13 @@
-import React from 'react';
-import { ArrowLeft, RotateCcw } from 'lucide-react';
+import React, { useState } from 'react';
+import { 
+  ArrowLeft, 
+  RotateCcw, 
+  Sliders, 
+  Zap, 
+  BookOpen, 
+  Layers, 
+  Sparkles
+} from 'lucide-react';
 import type { AnalysisResponse } from '../types/guide';
 import { RepositoryHeader } from '../components/RepositoryHeader';
 import { ProjectSummary } from '../components/ProjectSummary';
@@ -11,14 +19,20 @@ import { IssueRecommendations } from '../components/IssueRecommendations';
 import { DirectoryExplorer } from '../components/DirectoryExplorer';
 import { ContributionWorkflow } from '../components/ContributionWorkflow';
 import { WarningPanel } from '../components/WarningPanel';
+import { WhatMakesDiffSection } from '../components/WhatMakesDiffSection';
+import { ExecutionPlans } from '../components/ExecutionPlans';
+import { DeepArchitectureExplorer } from '../components/DeepArchitectureExplorer';
 
 interface GuideViewProps {
   data: AnalysisResponse;
   onReset: () => void;
 }
 
+type DepthMode = 'all' | 'tldr' | 'standard' | 'deep';
+
 export const GuideView: React.FC<GuideViewProps> = ({ data, onReset }) => {
   const { repository, guide, metadata } = data;
+  const [depthMode, setDepthMode] = useState<DepthMode>('all');
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
@@ -40,61 +54,159 @@ export const GuideView: React.FC<GuideViewProps> = ({ data, onReset }) => {
       {/* 1. Repository Header */}
       <RepositoryHeader repository={repository} metadata={metadata} />
 
-      {/* 2. Project Summary & Where to Start */}
+      {/* Adjustable Depth Mode Bar */}
+      <div className="mb-8 p-3 sm:p-4 rounded-2xl glass-panel border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-slate-900/40">
+        <div className="flex items-center gap-2.5">
+          <Sliders className="w-4 h-4 text-cyan-400 shrink-0" />
+          <div>
+            <span className="text-xs font-bold text-white uppercase tracking-wider block">
+              Adjustable Explanation Depth
+            </span>
+            <span className="text-[11px] text-slate-400">
+              Customize the level of detail and execution focus
+            </span>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-1.5 p-1 bg-slate-950/80 rounded-xl border border-slate-800">
+          <button
+            onClick={() => setDepthMode('all')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
+              depthMode === 'all'
+                ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Complete Guide</span>
+          </button>
+
+          <button
+            onClick={() => setDepthMode('tldr')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
+              depthMode === 'tldr'
+                ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Zap className="w-3.5 h-3.5" />
+            <span>TL;DR Quick Start</span>
+          </button>
+
+          <button
+            onClick={() => setDepthMode('standard')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
+              depthMode === 'standard'
+                ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>Standard Contributor</span>
+          </button>
+
+          <button
+            onClick={() => setDepthMode('deep')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
+              depthMode === 'deep'
+                ? 'bg-purple-500 text-white shadow-md shadow-purple-500/20'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Layers className="w-3.5 h-3.5" />
+            <span>Deep Blueprint & Plans</span>
+          </button>
+        </div>
+      </div>
+
+      {/* 2. What Makes Our Project Different (Highlighted in All and Deep modes) */}
+      {(depthMode === 'all' || depthMode === 'deep') && (
+        <WhatMakesDiffSection diffPoints={guide.differentiation_matrix} />
+      )}
+
+      {/* 3. Project Summary & Where to Start */}
       <ProjectSummary
         summary={guide.project_summary}
         whereToStart={guide.where_to_start}
+        deepExplanation={guide.deep_architecture?.explanation}
+        pattern={guide.deep_architecture?.pattern}
       />
 
-      {/* 3. Prerequisites */}
-      <Prerequisites prerequisites={guide.prerequisites} />
+      {/* 4. Deep Architectural Explorer (Lifecycle pipeline) */}
+      {(depthMode === 'all' || depthMode === 'deep') && guide.deep_architecture && (
+        <DeepArchitectureExplorer
+          architecture={guide.deep_architecture}
+          repoUrl={repository.html_url}
+          defaultBranch={repository.default_branch}
+        />
+      )}
 
-      {/* 4. First Contribution Spotlight */}
+      {/* 5. Targeted Execution Plans (Multi-track action roadmaps) */}
+      {(depthMode === 'all' || depthMode === 'deep' || depthMode === 'standard') && (
+        <ExecutionPlans
+          plans={guide.execution_plans}
+          repoUrl={repository.html_url}
+          defaultBranch={repository.default_branch}
+        />
+      )}
+
+      {/* 6. Prerequisites */}
+      {(depthMode === 'all' || depthMode === 'standard' || depthMode === 'tldr') && (
+        <Prerequisites prerequisites={guide.prerequisites} />
+      )}
+
+      {/* 7. First Contribution Spotlight */}
       <FirstContribution
         firstContribution={guide.first_contribution}
         repoUrl={repository.html_url}
         defaultBranch={repository.default_branch}
       />
 
-      {/* 5. Recommended Beginner Issues */}
-      <IssueRecommendations
-        issues={guide.recommended_issues}
-        repoUrl={repository.html_url}
-        defaultBranch={repository.default_branch}
-      />
+      {/* 8. Recommended Beginner Issues */}
+      {(depthMode === 'all' || depthMode === 'standard' || depthMode === 'deep') && (
+        <IssueRecommendations
+          issues={guide.recommended_issues}
+          repoUrl={repository.html_url}
+          defaultBranch={repository.default_branch}
+        />
+      )}
 
-      {/* 6. Setup Guide */}
+      {/* 9. Setup Guide */}
       <SetupGuide
         steps={guide.setup_steps}
         repoUrl={repository.html_url}
         defaultBranch={repository.default_branch}
       />
 
-      {/* 7. Run Locally */}
+      {/* 10. Run Locally */}
       <RunInstructions
         instructions={guide.run_instructions}
         repoUrl={repository.html_url}
         defaultBranch={repository.default_branch}
       />
 
-      {/* 8. Important Directories & Architecture */}
-      <DirectoryExplorer
-        directories={guide.important_directories}
-        repoUrl={repository.html_url}
-        defaultBranch={repository.default_branch}
-      />
+      {/* 11. Important Directories & Architecture */}
+      {(depthMode === 'all' || depthMode === 'standard' || depthMode === 'deep') && (
+        <DirectoryExplorer
+          directories={guide.important_directories}
+          repoUrl={repository.html_url}
+          defaultBranch={repository.default_branch}
+        />
+      )}
 
-      {/* 9. Contribution Workflow */}
-      <ContributionWorkflow workflow={guide.contribution_workflow} />
+      {/* 12. Contribution Workflow */}
+      {(depthMode === 'all' || depthMode === 'standard') && (
+        <ContributionWorkflow workflow={guide.contribution_workflow} />
+      )}
 
-      {/* 10. Warnings & Uncertainties */}
+      {/* 13. Warnings & Uncertainties */}
       <WarningPanel warnings={guide.warnings} />
 
       {/* Bottom CTA */}
       <div className="text-center py-12 border-t border-slate-800/80 mt-12">
         <h3 className="text-lg font-bold text-white mb-2">Ready to explore another codebase?</h3>
         <p className="text-sm text-slate-400 mb-6">
-          Git-Analyzer can guide you through any public GitHub repository.
+          Git-Analyzer can guide you through any public GitHub repository with verified ground truth.
         </p>
         <button
           onClick={onReset}
