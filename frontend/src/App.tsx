@@ -1,122 +1,117 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import { Compass, Github, Heart } from 'lucide-react';
+import { ThemeToggle } from './components/ThemeToggle';
+import { LandingPage } from './pages/LandingPage';
+import { GuideView } from './pages/GuideView';
+import { AnalysisProgress } from './components/AnalysisProgress';
+import { ErrorState } from './components/ErrorState';
+import { useAnalysis } from './hooks/useAnalysis';
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App: React.FC = () => {
+  const {
+    loading,
+    error,
+    result,
+    stages,
+    currentDetail,
+    startAnalysis,
+    cancelAnalysis,
+    reset,
+  } = useAnalysis();
+
+  const [activeUrl, setActiveUrl] = useState<string>('');
+
+  const handleStartAnalysis = (url: string) => {
+    setActiveUrl(url);
+    startAnalysis(url);
+  };
+
+  const handleRetry = () => {
+    if (activeUrl) {
+      startAnalysis(activeUrl);
+    } else {
+      reset();
+    }
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="min-h-screen flex flex-col justify-between">
+      {/* Navigation Header */}
+      <header className="sticky top-0 z-50 glass-panel border-b border-slate-800/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+          <div
+            onClick={reset}
+            className="flex items-center gap-2.5 cursor-pointer group"
+          >
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+              <Compass className="w-5 h-5 text-slate-950 stroke-[2.5]" />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-extrabold text-base tracking-tight text-white group-hover:text-cyan-300 transition-colors">
+                Git-<span className="text-cyan-400">Analyzer</span>
+              </span>
+              <span className="text-[10px] text-slate-400 font-medium -mt-1 hidden sm:inline">
+                Open-Source Onboarding Assistant
+              </span>
+            </div>
+          </div>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noreferrer"
+              className="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 hover:text-white transition-colors border border-slate-700/50 cursor-pointer"
+              title="GitHub"
+            >
+              <Github className="w-4 h-4" />
+            </a>
+          </div>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+      </header>
+
+      {/* Main Content Area */}
+      <main className="flex-1">
+        {loading ? (
+          <AnalysisProgress
+            stages={stages}
+            currentDetail={currentDetail}
+            onCancel={cancelAnalysis}
+          />
+        ) : error ? (
+          <ErrorState
+            message={error}
+            onRetry={handleRetry}
+            onReset={reset}
+          />
+        ) : result ? (
+          <GuideView data={result} onReset={reset} />
+        ) : (
+          <LandingPage onAnalyze={handleStartAnalysis} isLoading={loading} />
+        )}
+      </main>
+
+      {/* Footer */}
+      <footer className="glass-panel border-t border-slate-800/80 py-6 mt-12 text-center text-xs text-slate-500">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-1.5">
+            <span>Built with</span>
+            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline" />
+            <span>for the global open-source community.</span>
+          </div>
+
+          <div className="flex items-center gap-4 text-slate-400">
+            <span>Apache 2.0 License</span>
+            <span>•</span>
+            <span>Self-Hostable</span>
+            <span>•</span>
+            <span>Powered by Qwen3</span>
+          </div>
         </div>
-      </section>
+      </footer>
+    </div>
+  );
+};
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
-}
-
-export default App
+export default App;
