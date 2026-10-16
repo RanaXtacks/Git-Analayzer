@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import {
-  CheckCircle2,
   Copy,
   Check,
   ShieldCheck,
-  AlertTriangle,
   Sparkles,
-  Terminal,
   ExternalLink,
   ChevronDown,
   ChevronUp,
-  Sliders,
   Layers,
   BookOpen
 } from 'lucide-react';
+
 import type { OnboardingGuide, RepositoryMetadata } from '../types/guide';
 
 interface NewcomerQuickstartProps {
