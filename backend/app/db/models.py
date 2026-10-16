@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from sqlalchemy import Column, Integer, String, Text, DateTime, JSON
 from sqlalchemy.orm import declarative_base
 
@@ -15,7 +15,7 @@ class AnalysisRecord(Base):
     commit_sha = Column(String(64), nullable=True, index=True)
     model_name = Column(String(100), nullable=False)
     guide_json = Column(JSON, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), nullable=False)
 
     def __repr__(self):
         return f"<AnalysisRecord {self.owner}/{self.repo} @ {self.commit_sha}>"

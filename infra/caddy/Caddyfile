@@ -1,0 +1,32 @@
+# Caddyfile for Git-Analyzer Production Deployment
+# Automatically provisions and renews SSL/TLS certificates via Let's Encrypt / ZeroSSL
+
+{$DOMAIN:localhost} {
+    # Encode responses with gzip and zstd
+    encode gzip zstd
+
+    # Proxy API and SSE streaming requests to FastAPI backend
+    handle /api/* {
+        reverse_proxy backend:8000 {
+            # Disable buffering for real-time Server-Sent Events (SSE)
+            flush_interval -1
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Forwarded-Proto {scheme}
+        }
+    }
+
+    # Serve React static assets
+    handle {
+        root * /var/www/html
+        try_files {path} /index.html
+        file_server
+    }
+
+    # Security headers
+    header {
+        X-Content-Type-Options nosniff
+        X-Frame-Options DENY
+        Referrer-Policy strict-origin-when-cross-origin
+    }
+}

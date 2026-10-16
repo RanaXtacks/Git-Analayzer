@@ -2,7 +2,7 @@ import asyncio
 import json
 import logging
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import AsyncGenerator, Dict, Any
 
 from fastapi import APIRouter, Depends, HTTPException, Request, status
@@ -52,7 +52,7 @@ async def health_check(settings: Settings = Depends(get_settings)):
         "llm_healthy": llm_healthy,
         "database_enabled": settings.DATABASE_ENABLED,
         "redis_enabled": settings.REDIS_ENABLED,
-        "timestamp": datetime.utcnow().isoformat(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
     }
 
 
@@ -138,7 +138,7 @@ async def analyze_repository_sync(
                     commit_sha=context.metadata.head_sha,
                     model=model_name,
                     provider=settings.LLM_PROVIDER,
-                    generated_at=datetime.utcnow().isoformat(),
+                    generated_at=datetime.now(timezone.utc).isoformat(),
                     cached=False,
                     duration_seconds=duration,
                 ),
@@ -277,7 +277,7 @@ async def analyze_repository_stream(
                         commit_sha=context.metadata.head_sha,
                         model=model_name,
                         provider=settings.LLM_PROVIDER,
-                        generated_at=datetime.utcnow().isoformat(),
+                        generated_at=datetime.now(timezone.utc).isoformat(),
                         cached=False,
                         duration_seconds=duration,
                     ),

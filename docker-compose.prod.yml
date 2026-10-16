@@ -1,0 +1,118 @@
+version: "3.8"
+
+services:
+  caddy:
+    image: caddy:2-alpine
+    container_name: git_analyzer_caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - DOMAIN=${DOMAIN:-localhost}
+    volumes:
+      - ./infra/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - frontend_dist:/var/www/html:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - backend
+      - frontend
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: git_analyzer_frontend_builder
+    volumes:
+      - frontend_dist:/var/www/html
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: git_analyzer_backend_prod
+    restart: unless-stopped
+    expose:
+      - "8000"
+    environment:
+      - APP_ENV=production
+      - DEBUG=false
+      - DATABASE_ENABLED=true
+      - DATABASE_URL=postgresql+asyncpg://git_analyzer:${POSTGRES_PASSWORD}@postgres:5432/git_analyzer
+      - REDIS_ENABLED=true
+      - REDIS_URL=redis://redis:6379/0
+      - LLM_PROVIDER=vllm
+      - VLLM_BASE_URL=http://vllm:8000
+      - VLLM_MODEL=Qwen/Qwen3-8B
+      - GITHUB_TOKEN=${GITHUB_TOKEN:-}
+      - RATE_LIMIT_PER_MINUTE=${RATE_LIMIT_PER_MINUTE:-5}
+      - CORS_ORIGINS=["https://${DOMAIN:-localhost}"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      vllm:
+        condition: service_started
+
+  vllm:
+    image: vllm/vllm-openai:latest
+    container_name: git_analyzer_vllm_prod
+    restart: unless-stopped
+    runtime: nvidia
+    expose:
+      - "8000"
+    environment:
+      - HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN:-}
+    volumes:
+      - huggingface_cache:/root/.cache/huggingface
+    command: >
+      --model Qwen/Qwen3-8B
+      --max-model-len 8192
+      --dtype auto
+      --gpu-memory-utilization 0.90
+      --port 8000
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: git_analyzer_postgres_prod
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: git_analyzer
+      POSTGRES_USER: git_analyzer
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD required for production}
+    volumes:
+      - postgres_prod_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U git_analyzer"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: git_analyzer_redis_prod
+    restart: unless-stopped
+    volumes:
+      - redis_prod_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  frontend_dist:
+  caddy_data:
+  caddy_config:
+  postgres_prod_data:
+  redis_prod_data:
+  huggingface_cache:
