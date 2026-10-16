@@ -13,22 +13,28 @@ class OllamaProvider(LLMProvider):
         base_url: str = "http://localhost:11434",
         model: str = "qwen3:8b",
         timeout: float = 120.0,
+        num_gpu: int | None = None,
     ):
         self.base_url = base_url.rstrip("/")
         self.model = model
         self.timeout = timeout
+        self.num_gpu = num_gpu
 
     async def generate(self, system_prompt: str, user_prompt: str) -> str:
+        options = {
+            "temperature": 0.1,
+            "top_p": 0.9,
+        }
+        if self.num_gpu is not None:
+            options["num_gpu"] = self.num_gpu
+
         payload = {
             "model": self.model,
             "system": system_prompt,
             "prompt": user_prompt,
             "format": "json",
             "stream": False,
-            "options": {
-                "temperature": 0.1,
-                "top_p": 0.9,
-            },
+            "options": options,
         }
         try:
             async with httpx.AsyncClient(timeout=self.timeout) as client:

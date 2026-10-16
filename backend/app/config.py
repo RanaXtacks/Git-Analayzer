@@ -34,7 +34,12 @@ class Settings(BaseSettings):
     # LLM Settings
     LLM_PROVIDER: str = "ollama"  # "ollama", "vllm", or "deterministic"
     OLLAMA_BASE_URL: str = "http://localhost:11434"
+<<<<<<< HEAD
     OLLAMA_MODEL: str = "qwen2.5:7b"
+=======
+    OLLAMA_MODEL: str = "qwen3:8b"
+    OLLAMA_NUM_GPU: Optional[int] = 0
+>>>>>>> 41362631db42ad0e347fd5aceb1af2a024778376
     VLLM_BASE_URL: str = "http://localhost:8000"
     VLLM_MODEL: str = "qwen3:8b"
     VLLM_API_KEY: Optional[str] = None

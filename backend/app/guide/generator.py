@@ -1,6 +1,6 @@
 import logging
 from typing import Optional
-from app.llm.base import LLMProvider, LLMUnavailableError
+from app.llm.base import LLMProvider, LLMUnavailableError, LLMProviderError, LLMTimeoutError
 from app.llm.prompts import SYSTEM_PROMPT, build_user_prompt
 from app.llm.parser import parse_guide_response, GuideParseError
 from app.llm.deterministic import DeterministicProvider
@@ -25,10 +25,10 @@ class GuideGenerator:
 
         try:
             raw_output = await self.llm.generate(SYSTEM_PROMPT, user_prompt)
-        except LLMUnavailableError as e:
+        except (LLMUnavailableError, LLMProviderError, LLMTimeoutError) as e:
             settings = get_settings()
             if settings.AUTO_FALLBACK_TO_DETERMINISTIC:
-                logger.warning(f"Inference server unreachable ({e}). Using deterministic evidence synthesis fallback.")
+                logger.warning(f"Inference error ({e}). Using deterministic evidence synthesis fallback.")
                 fallback = DeterministicProvider()
                 raw_output = await fallback.generate(SYSTEM_PROMPT, user_prompt)
             else:
