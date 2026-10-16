@@ -55,6 +55,7 @@ def get_llm_provider() -> LLMProvider:
             base_url=settings.OLLAMA_BASE_URL,
             model=settings.OLLAMA_MODEL,
             timeout=float(settings.LLM_TIMEOUT),
+            num_gpu=settings.OLLAMA_NUM_GPU,
         )
 
 
