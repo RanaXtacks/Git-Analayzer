@@ -198,7 +198,7 @@ def build_user_prompt(context: RepositoryContext) -> str:
             "total_files": struct.total_files,
             "important_directories": struct.important_directories,
             "likely_entry_points": struct.likely_entry_points,
-            "compact_tree_sample": struct.compact_tree[:1500],
+            "compact_tree_sample": struct.compact_tree[:120],
         },
         "configuration_analysis": {
             "docker_support": cfg.docker_support,
@@ -207,10 +207,11 @@ def build_user_prompt(context: RepositoryContext) -> str:
             "ci_workflows": cfg.ci_workflows,
             "ci_commands": cfg.ci_commands,
         },
-        "readme_excerpt": (context.readme or "No README file found.")[:3500],
-        "contributing_excerpt": (context.contributing or "No CONTRIBUTING.md found.")[:1500],
+        "readme_excerpt": (context.readme or "No README file found.")[:2000],
+        "contributing_excerpt": (context.contributing or "No CONTRIBUTING.md found.")[:800],
         "available_open_issues": top_issues,
     }
+
 
     return (
         "Here is the verified repository evidence collected from GitHub:\n\n"

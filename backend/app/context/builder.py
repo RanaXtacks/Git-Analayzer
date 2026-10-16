@@ -1,5 +1,7 @@
+import asyncio
 import logging
 from typing import Callable, Coroutine, Dict, List, Optional
+
 from app.github.client import GitHubClient
 from app.github.files import extract_readme, extract_contributing, extract_priority_files
 from app.github.issues import extract_issues
@@ -50,9 +52,16 @@ class ContextBuilder:
         metadata = await self.client.get_repository(owner, repo)
         await notify("metadata", "complete", f"Found {metadata.full_name} ({metadata.stars} stars)")
 
-        # 2. README extraction
-        await notify("readme", "running", "Retrieving README documentation...")
-        raw_readme = await extract_readme(self.client, owner, repo)
+        # 2. Parallel Extraction: README, CONTRIBUTING, Git Tree, and Issues
+        await notify("readme", "running", "Retrieving repository documentation, tree, and issues in parallel...")
+        raw_readme, raw_contributing, tree_entries, raw_issues = await asyncio.gather(
+            extract_readme(self.client, owner, repo),
+            extract_contributing(self.client, owner, repo),
+            self.client.get_tree(owner, repo, sha=metadata.default_branch),
+            extract_issues(self.client, owner, repo, max_issues=self.max_issues),
+        )
+
+        # Process README
         sanitized_readme = None
         if raw_readme:
             clean_readme, warnings = self.sanitizer.sanitize_content(raw_readme)
@@ -62,29 +71,25 @@ class ContextBuilder:
         else:
             await notify("readme", "complete", "No README found (will note in onboarding guide)")
 
-        # 3. CONTRIBUTING documentation
-        await notify("contributing", "running", "Locating contributing guidelines...")
-        raw_contributing = await extract_contributing(self.client, owner, repo)
+        # Process CONTRIBUTING
         sanitized_contributing = None
         if raw_contributing:
             clean_contrib, warnings = self.sanitizer.sanitize_content(raw_contributing)
             sanitized_contributing = self.selector.prepare_contributing(clean_contrib)
             sanitized_warnings.extend(warnings)
-            await notify("contributing", "complete", "CONTRIBUTING.md discovered and processed")
+            await notify("contributing", "complete", "CONTRIBUTING.md processed")
         else:
-            await notify("contributing", "complete", "No CONTRIBUTING.md found (will supply standard workflow)")
+            await notify("contributing", "complete", "No CONTRIBUTING.md found")
 
-        # 4. Project structure (Tree)
-        await notify("structure", "running", "Inspecting Git tree structure...")
-        tree_entries = await self.client.get_tree(owner, repo, sha=metadata.default_branch)
+        # Process Structure (Tree)
+        await notify("structure", "running", "Mapping Git tree structure...")
         structure_result = self.analyzer.analyze_structure(tree_entries)
-        await notify("structure", "complete", f"Mapped {structure_result.total_files} files across directories")
+        await notify("structure", "complete", f"Mapped {structure_result.total_files} files")
 
         # 5. Priority files & dependencies
         await notify("dependencies", "running", "Detecting dependencies and manifests...")
         raw_priority_files = await extract_priority_files(self.client, owner, repo, tree_entries)
 
-        # Sanitize priority files and filter out sensitive files
         safe_priority_files: Dict[str, str] = {}
         for filename, content in raw_priority_files.items():
             if self.sanitizer.is_sensitive_file(filename):
@@ -103,11 +108,10 @@ class ContextBuilder:
         config_result = self.analyzer.analyze_configuration(safe_priority_files)
         await notify("configuration", "complete", "Configuration and workflows cataloged")
 
-        # 7. GitHub issues
-        await notify("issues", "running", "Fetching and evaluating open GitHub issues...")
-        raw_issues = await extract_issues(self.client, owner, repo, max_issues=self.max_issues)
+        # 7. Rank Issues
         ranked_issues = self.analyzer.rank_issues(raw_issues)
         await notify("issues", "complete", f"Ranked {len(ranked_issues)} open issues for beginner fit")
+
 
         return RepositoryContext(
             metadata=metadata,

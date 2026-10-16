@@ -40,7 +40,7 @@ class Settings(BaseSettings):
     VLLM_MODEL: str = "qwen3:8b"
     VLLM_API_KEY: Optional[str] = None
     AUTO_FALLBACK_TO_DETERMINISTIC: bool = True
-    LLM_TIMEOUT: int = 180
+    LLM_TIMEOUT: int = 65
     LLM_MAX_RETRIES: int = 1
 
     # Database Settings
@@ -63,8 +63,9 @@ class Settings(BaseSettings):
     MAX_CONTEXT_SIZE: int = 50000
 
     # Concurrency & Safeguards
-    MAX_ANALYSIS_DURATION: int = 180
+    MAX_ANALYSIS_DURATION: int = 75
     MAX_CONCURRENT_ANALYSES: int = 5
+
 
     model_config = SettingsConfigDict(
         env_file=(".env", "../.env"),

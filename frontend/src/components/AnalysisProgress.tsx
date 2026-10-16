@@ -13,6 +13,12 @@ export const AnalysisProgress: React.FC<AnalysisProgressProps> = ({
   currentDetail,
   onCancel,
 }) => {
+  const [elapsed, setElapsed] = React.useState(0);
+  React.useEffect(() => {
+    const timer = setInterval(() => setElapsed((prev) => prev + 1), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   const completedCount = stages.filter((s) => s.status === 'complete').length;
   const progressPercent = Math.round((completedCount / stages.length) * 100);
 
@@ -23,10 +29,16 @@ export const AnalysisProgress: React.FC<AnalysisProgressProps> = ({
           <Loader2 className="w-5 h-5 text-cyan-400 animate-spin" />
           Analyzing Repository...
         </h2>
-        <span className="text-sm font-bold font-mono text-cyan-400">
-          {progressPercent}%
-        </span>
+        <div className="flex items-center gap-3">
+          <span className="text-xs text-slate-400 font-mono">
+            {elapsed}s (Target: &lt;60-80s)
+          </span>
+          <span className="text-sm font-bold font-mono text-cyan-400">
+            {progressPercent}%
+          </span>
+        </div>
       </div>
+
 
       {currentDetail && (
         <p className="text-xs sm:text-sm text-cyan-300 font-mono mb-6 bg-slate-950/80 p-2.5 rounded-lg border border-slate-850 truncate">
